@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Wellness Companion App — Jenn Kong</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --blush: #f2cfc4;
+      --rose: #e8a898;
+      --dark: #1c1a19;
+      --mid: #6b6460;
+      --light: #f9f5f3;
+      --white: #ffffff;
+      --border: #ece5e1;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--light);
+      color: var(--dark);
+      font-size: 15px;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 22px 60px;
+      background: rgba(249,245,243,0.88);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 20px; font-weight: 600; letter-spacing: 0.04em;
+      color: var(--dark); text-decoration: none;
+    }
+    .nav-back {
+      font-size: 13px; font-weight: 400; letter-spacing: 0.08em;
+      text-transform: uppercase; color: var(--mid);
+      text-decoration: none; transition: color 0.2s;
+    }
+    .nav-back:hover { color: var(--dark); }
+
+    /* ── CASE STUDY HEADER ── */
+    .case-study-hero {
+      min-height: 100vh;
+      display: flex; align-items: center; justify-content: center;
+      padding: 140px 60px 80px;
+      position: relative; overflow: hidden;
+      text-align: center;
+    }
+    .hero-bg-circle {
+      position: absolute; top: -120px; right: -100px;
+      width: 600px; height: 600px; border-radius: 50%;
+      background: radial-gradient(circle, var(--blush) 0%, transparent 70%);
+      opacity: 0.55; pointer-events: none;
+    }
+    .case-study-header {
+      max-width: 720px; position: relative; z-index: 1;
+    }
+    .case-tag {
+      display: inline-block; font-size: 12px; letter-spacing: 0.14em;
+      text-transform: uppercase; color: var(--rose);
+      border: 1px solid var(--rose); padding: 5px 14px; border-radius: 20px;
+      margin-bottom: 28px; font-weight: 500;
+    }
+    h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(44px, 7vw, 72px);
+      font-weight: 300; line-height: 1.1; letter-spacing: -0.01em;
+      color: var(--dark); margin-bottom: 24px;
+    }
+    .case-subtitle {
+      font-size: 18px; color: var(--mid);
+      max-width: 500px; margin: 0 auto;
+    }
+
+    /* ── SECTION ── */
+    section { padding: 100px 60px; }
+    .section-label {
+      font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase;
+      color: var(--rose); font-weight: 500; margin-bottom: 16px;
+    }
+    h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(34px, 5vw, 52px); font-weight: 300;
+      line-height: 1.15; color: var(--dark); margin-bottom: 28px;
+    }
+    .divider {
+      width: 48px; height: 1px; background: var(--rose);
+      margin-bottom: 36px;
+    }
+
+    /* ── OVERVIEW ── */
+    #overview { background: var(--white); }
+    .overview-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 60px; margin-top: 56px;
+    }
+    .overview-item h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 20px; font-weight: 400; color: var(--dark);
+      margin-bottom: 12px;
+    }
+    .overview-item p {
+      color: var(--mid); font-size: 14.5px; line-height: 1.75;
+    }
+
+    /* ── PROBLEM ── */
+    #problem { background: var(--light); }
+    .problem-content {
+      max-width: 720px; margin-top: 36px;
+    }
+    .problem-content p {
+      color: var(--mid); font-size: 16px; line-height: 1.8;
+      margin-bottom: 20px;
+    }
+
+    /* ── SOLUTION ── */
+    #solution { background: var(--white); }
+    .solution-grid {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 80px; align-items: center; margin-top: 56px;
+    }
+    .solution-text {
+      color: var(--mid);
+    }
+    .solution-text p {
+      margin-bottom: 18px; font-size: 15.5px; line-height: 1.8;
+    }
+    .solution-list {
+      list-style: none; margin-top: 28px;
+    }
+    .solution-list li {
+      padding: 12px 0; padding-left: 28px; position: relative;
+      color: var(--mid); font-size: 14.5px;
+    }
+    .solution-list li::before {
+      content: '▸'; position: absolute; left: 0; color: var(--rose);
+      font-weight: bold;
+    }
+    .solution-image {
+      aspect-ratio: 1; border-radius: 4px;
+      background: linear-gradient(135deg, var(--blush), var(--border));
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 24px; color: var(--mid); font-style: italic;
+    }
+
+    /* ── PROCESS ── */
+    #process { background: var(--light); }
+    .process-timeline {
+      display: grid; grid-template-columns: repeat(4, 1fr);
+      gap: 40px; margin-top: 56px;
+    }
+    .timeline-item h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 18px; font-weight: 400; color: var(--dark);
+      margin-bottom: 14px;
+    }
+    .timeline-item p {
+      color: var(--mid); font-size: 13.5px; line-height: 1.7;
+    }
+    .timeline-step {
+      display: inline-block; width: 42px; height: 42px;
+      border-radius: 50%; background: var(--blush);
+      display: flex; align-items: center; justify-content: center;
+      font-weight: 600; color: var(--dark); margin-bottom: 16px;
+      font-size: 14px;
+    }
+
+    /* ── RESULTS ── */
+    #results { background: var(--white); }
+    .results-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 60px; margin-top: 56px;
+    }
+    .result-card {
+      text-align: center;
+    }
+    .result-stat {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 48px; font-weight: 600; color: var(--rose);
+      margin-bottom: 8px;
+    }
+    .result-label {
+      color: var(--dark); font-size: 14.5px; font-weight: 500;
+      letter-spacing: 0.05em;
+    }
+    .result-desc {
+      color: var(--mid); font-size: 13.5px; margin-top: 12px;
+      line-height: 1.6;
+    }
+
+    /* ── CTA ── */
+    .case-study-cta {
+      text-align: center; padding: 100px 60px;
+      background: var(--dark); color: var(--white);
+    }
+    .case-study-cta h2 { color: var(--white); }
+    .case-study-cta .divider { background: var(--blush); margin: 28px auto; }
+    .case-study-cta p {
+      color: rgba(255,255,255,0.6); max-width: 440px;
+      margin: 0 auto 48px; font-size: 15.5px;
+    }
+    .btn {
+      display: inline-block; padding: 13px 32px; border-radius: 40px;
+      font-size: 13px; font-weight: 500; letter-spacing: 0.06em;
+      text-transform: uppercase; text-decoration: none;
+      transition: all 0.25s;
+    }
+    .btn-outline {
+      background: transparent; color: var(--white);
+      border: 1px solid rgba(255,255,255,0.25);
+    }
+    .btn-outline:hover {
+      background: var(--blush); color: var(--dark);
+      border-color: var(--blush);
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--dark); color: rgba(255,255,255,0.3);
+      text-align: center; font-size: 12px; letter-spacing: 0.06em;
+      padding: 24px 60px; border-top: 1px solid rgba(255,255,255,0.07);
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      nav { padding: 18px 28px; }
+      section { padding: 72px 28px; }
+      .case-study-hero { padding: 120px 28px 60px; }
+      .overview-grid,
+      .solution-grid,
+      .results-grid { grid-template-columns: 1fr; gap: 40px; }
+      .process-timeline { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 600px) {
+      .process-timeline { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="../index.html" class="nav-logo">Jenn Kong</a>
+    <a href="../index.html#projects" class="nav-back">← Back to Work</a>
+  </nav>
+
+  <!-- HERO -->
+  <section class="case-study-hero">
+    <div class="hero-bg-circle"></div>
+    <div class="case-study-header">
+      <div class="case-tag">Mobile App · 2024</div>
+      <h1>Wellness Companion App</h1>
+      <p class="case-subtitle">Designing a mindfulness app that makes mental wellness accessible, intuitive, and engaging for everyday users.</p>
+    </div>
+  </section>
+
+  <!-- OVERVIEW -->
+  <section id="overview">
+    <div class="section-label">Overview</div>
+    <h2>Project Snapshot</h2>
+    <div class="divider"></div>
+    <div class="overview-grid">
+      <div class="overview-item">
+        <h3>Timeline</h3>
+        <p>6 months from concept through launch, working in two-week sprints with iterative testing between phases.</p>
+      </div>
+      <div class="overview-item">
+        <h3>My Role</h3>
+        <p>Lead UX Designer responsible for research, user flows, interaction design, and high-fidelity prototyping.</p>
+      </div>
+      <div class="overview-item">
+        <h3>Tools Used</h3>
+        <p>Figma for design and prototyping, Dovetail for research analysis, Maze for user testing, and GitHub for handoff documentation.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROBLEM -->
+  <section id="problem">
+    <div class="section-label">The Challenge</div>
+    <h2>Understanding the Problem</h2>
+    <div class="divider"></div>
+    <div class="problem-content">
+      <p>The client came to us with a clear vision: build a mindfulness and wellness app that stands out in a crowded market. However, existing wellness apps often suffer from high user churn and poor engagement after the first week.</p>
+      <p>We conducted interviews with 20+ potential users and found several key pain points: most felt overwhelmed by onboarding, didn't understand how to choose between features, and abandoned apps that didn't feel personalized to their needs.</p>
+      <p>The core insight: people don't want another app—they want a companion that understands them and meets them where they are in their wellness journey.</p>
+    </div>
+  </section>
+
+  <!-- SOLUTION -->
+  <section id="solution">
+    <div class="section-label">The Solution</div>
+    <h2>A Personalized Wellness Experience</h2>
+    <div class="divider"></div>
+    <div class="solution-grid">
+      <div class="solution-text">
+        <p>We redesigned the app around a personalized onboarding flow that sets the tone for the entire user experience. Instead of forcing users through a generic setup, we built adaptive flows based on their primary wellness goals.</p>
+        <p>Key design decisions included:</p>
+        <ul class="solution-list">
+          <li>Smart onboarding that learns user preferences and recommends personalized content</li>
+          <li>Clear visual hierarchy that guides users to high-value features without cognitive overload</li>
+          <li>Progress tracking that feels rewarding and motivating rather than guilt-inducing</li>
+          <li>Community features that foster connection while respecting privacy</li>
+        </ul>
+      </div>
+      <div class="solution-image">Design mockups here</div>
+    </div>
+  </section>
+
+  <!-- PROCESS -->
+  <section id="process">
+    <div class="section-label">Work in Progress</div>
+    <h2>Design Process</h2>
+    <div class="divider"></div>
+    <div class="process-timeline">
+      <div class="timeline-item">
+        <div class="timeline-step">01</div>
+        <h3>Research</h3>
+        <p>User interviews, competitive analysis, and behavioral research to uncover pain points and opportunities.</p>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-step">02</div>
+        <h3>Ideation</h3>
+        <p>Workshops to explore solutions and narrow down to the most promising concept based on user feedback.</p>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-step">03</div>
+        <h3>Design & Test</h3>
+        <p>Rapid prototyping and iterative user testing to validate key flows and refine the interface.</p>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-step">04</div>
+        <h3>Handoff</h3>
+        <p>High-fidelity design system, component library, and comprehensive documentation for engineering.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- RESULTS -->
+  <section id="results">
+    <div class="section-label">Impact</div>
+    <h2>Results & Metrics</h2>
+    <div class="divider"></div>
+    <div class="results-grid">
+      <div class="result-card">
+        <div class="result-stat">94%</div>
+        <div class="result-label">Completion Rate</div>
+        <p class="result-desc">Onboarding completion increased from 68% in the previous version to 94% with the new personalized flow.</p>
+      </div>
+      <div class="result-card">
+        <div class="result-stat">4.8★</div>
+        <div class="result-label">App Store Rating</div>
+        <p class="result-desc">Launched with a strong 4.8-star rating, with users specifically praising the intuitive interface.</p>
+      </div>
+      <div class="result-card">
+        <div class="result-stat">3x</div>
+        <div class="result-label">Weekly Engagement</div>
+        <p class="result-desc">Active users increased 3x and users who practiced weekly grew by 2.5x after launch.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="case-study-cta">
+    <h2>More Work</h2>
+    <div class="divider"></div>
+    <p>Interested in seeing more of my design work? Head back to my portfolio to explore other projects and case studies.</p>
+    <a href="../index.html#projects" class="btn btn-outline">Back to Portfolio</a>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <span>© 2026 Jenn Kong · Designed with care</span>
+  </footer>
+
+</body>
+</html>
