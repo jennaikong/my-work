@@ -191,6 +191,17 @@
     }
     .project-desc { font-size: 13.5px; color: var(--mid); line-height: 1.65; }
 
+    .project-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: grayscale(100%);
+      transition: filter 0.4s ease;
+    }
+    .project-card:hover .project-img {
+      filter: grayscale(0%);
+    }
+
     /* ── RESUME ── */
     #resume { background: var(--white); }
     .resume-layout {
@@ -352,56 +363,93 @@
       <h2>Projects &amp; Processes</h2>
       <div class="divider"></div>
     </div>
+    <!-- Primary 3 projects: 04, 03, 05 -->
     <div class="projects-grid">
-      <a href="case-studies/AIDesignWorkshop.html" class="project-card reveal">
-        <div class="project-thumb project-thumb-1">01</div>
-        <div class="project-info">
-          <div class="project-category">AI Design Framework · 2025</div>
-          <div class="project-title">A Hitchhiker's Guide to the AI Design</div>
-          <p class="project-desc">A workshop that provides product designers with a framework and set of templates to help wrangle in the AI hype and build products that matter.</p>
-        </div>
-      </a>
-      <a href="case-studies/ecommerce-redesign.html" class="project-card reveal">
-        <div class="project-thumb project-thumb-2">02</div>
-        <div class="project-info">
-          <div class="project-category">Innovation Workshop · 2024</div>
-          <div class="project-title">Reimagining an AI-Assistant</div>
-          <p class="project-desc">Defined and aligned the product vision for Dot, an AI healthcare assistant — synthesizing 320+ ideas into a focused set of concepts.</p>
-        </div>
-      </a>
-      <a href="case-studies/design-system.html" class="project-card reveal">
-        <div class="project-thumb project-thumb-3">03</div>
-        <div class="project-info">
-          <div class="project-category">AI Design System · 2026</div>
-          <div class="project-title">Design Patterns to Build Trust</div>
-          <p class="project-desc">Established a set of AI values, principles and UI design patterns for our company's AI first strategy.</p>
-        </div>
-      </a>
-      <a href="case-studies/analytics-dashboard.html" class="project-card reveal">
-        <div class="project-thumb project-thumb-4">04</div>
+      <a href="case-studies/analytics-dashboard.html" class="project-card">
+        <div class="project-thumb project-thumb-4" style="padding:0; overflow:hidden;">
+          <img src="images/JBTD.png" alt="Multi-agent AI system" class="project-img" /></div>
         <div class="project-info">
           <div class="project-category">Orchestrating Agents · 2026</div>
           <div class="project-title">Multi-agent AI system</div>
           <p class="project-desc">Led a cross-functional team of designers and product managers to deliver a production-ready agentic AI product from concept to release.</p>
         </div>
       </a>
-      <a href="case-studies/brand-identity.html" class="project-card reveal">
-        <div class="project-thumb project-thumb-5">05</div>
+      <a href="case-studies/design-system.html" class="project-card">
+        <div class="project-thumb project-thumb-3" style="padding:0; overflow:hidden;">
+          <img src="images/AI-Design-Patterns-workshop.png" alt="Design Patterns to Build Trust" class="project-img" /></div>
+        <div class="project-info">
+          <div class="project-category">AI Design System · 2026</div>
+          <div class="project-title">Design Patterns to Build Trust</div>
+          <p class="project-desc">Established a set of AI values, principles and UI design patterns for our company's AI first strategy.</p>
+        </div>
+      </a>
+      <a href="case-studies/brand-identity.html" class="project-card">
+        <div class="project-thumb project-thumb-5" style="padding:0; overflow:hidden;">
+          <img src="images/AI-Design-Patterns-Inspo.png" alt="Branding and Design for an AI Assistant" class="project-img" /></div>
         <div class="project-info">
           <div class="project-category">Digital healthcare assistant · 2025</div>
           <div class="project-title">Branding and Design for an AI Assistant</div>
           <p class="project-desc">Led the design and brand identity of our company's newest employee - a personalized digital healthcare assistant named Dot.</p>
         </div>
       </a>
-      <a href="case-studies/accessibility-audit.html" class="project-card reveal">
-        <div class="project-thumb project-thumb-6">06</div>
-        <div class="project-info">
-          <div class="project-category">AI-assisted documentation · 2023</div>
-          <div class="project-title">Early exploration of GenAI in healthcare AI</div>
-          <p class="project-desc">Researched, designed, and tested an AI-assisted tool for clinicians and presented findings at a conference in 2023, among the early adopters of GenAI in clinical workflows.</p>
-        </div>
-      </a>
-      </div> 
+    </div>
+
+    <!-- See More toggle -->
+    <div style="text-align:center; margin-top: 48px;">
+      <button id="see-more-btn" onclick="toggleMoreProjects()" style="
+        background: transparent;
+        border: 1px solid var(--dark);
+        color: var(--dark);
+        padding: 13px 36px;
+        border-radius: 40px;
+        font-family: 'DM Sans', sans-serif;
+        font-size: 13px;
+        font-weight: 500;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        cursor: pointer;
+        transition: all 0.25s;
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+      ">
+        <span id="see-more-label">See More Work</span>
+        <span id="see-more-arrow" style="display:inline-block; transition: transform 0.3s;">↓</span>
+      </button>
+    </div>
+
+    <!-- Hidden projects: 01, 02, 06 -->
+    <div id="more-projects" style="overflow: hidden; max-height: 0; transition: max-height 0.6s ease, opacity 0.5s ease; opacity: 0;">
+      <div class="projects-grid" style="margin-top: 28px;">
+        <a href="case-studies/AIDesignWorkshop.html" class="project-card">
+          <div class="project-thumb project-thumb-1" style="padding:0; overflow:hidden;">
+            <img src="images/AI-Workshop.jpg" alt="A Hitchhiker's Guide to AI Design" class="project-img" /></div>
+          <div class="project-info">
+            <div class="project-category">AI Design Framework · 2025</div>
+            <div class="project-title">A Hitchhiker's Guide to the AI Design</div>
+            <p class="project-desc">A workshop that provides product designers with a framework and set of templates to help wrangle in the AI hype and build products that matter.</p>
+          </div>
+        </a>
+        <a href="case-studies/ecommerce-redesign.html" class="project-card">
+          <div class="project-thumb project-thumb-2" style="padding:0; overflow:hidden;">
+            <img src="images/WendyJourney.jpg" alt="Reimagining an AI-Assistant" class="project-img" /></div>
+          <div class="project-info">
+            <div class="project-category">Innovation Workshop · 2024</div>
+            <div class="project-title">Reimagining an AI-Assistant</div>
+            <p class="project-desc">Defined and aligned the product vision for Dot, an AI healthcare assistant — synthesizing 320+ ideas into a focused set of concepts.</p>
+          </div>
+        </a>
+        <a href="case-studies/accessibility-audit.html" class="project-card">
+          <div class="project-thumb project-thumb-6" style="padding:0; overflow:hidden;">
+            <img src="images/HMWs.jpg" alt="Early exploration of GenAI in healthcare" class="project-img" /></div>
+          <div class="project-info">
+            <div class="project-category">AI-assisted documentation · 2023</div>
+            <div class="project-title">Early exploration of GenAI in healthcare AI</div>
+            <p class="project-desc">Researched, designed, and tested an AI-assisted tool for clinicians and presented findings at a conference in 2023, among the early adopters of GenAI in clinical workflows.</p>
+          </div>
+        </a>
+      </div>
+    </div>
     </div>
   </section>
 
@@ -487,7 +535,7 @@
       <h2>Let's work together.</h2>
       <div class="divider"></div>
       <p class="contact-sub">Open to freelance projects, full-time roles, and creative collaborations. Don't hesitate to reach out.</p>
-      <a href="mailto:hello@jennkong.com" class="contact-email">hello@jennkong.com</a>
+      <a href="/cdn-cgi/l/email-protection#8be3eee7e7e4cbe1eee5e5e0e4e5eca5e8e4e6" class="contact-email"><span class="__cf_email__" data-cfemail="264e434a4a49664c4348484d4948410845494b">[email&#160;protected]</span></a>
       <div class="contact-links">
         <a href="#" class="contact-link">LinkedIn</a>
         <a href="#" class="contact-link">Dribbble</a>
@@ -503,18 +551,50 @@
   </footer>
 
   <script>
-    // Scroll reveal
+    // ── See More toggle ──
+    function toggleMoreProjects() {
+      const panel = document.getElementById('more-projects');
+      const label = document.getElementById('see-more-label');
+      const arrow = document.getElementById('see-more-arrow');
+      const isOpen = panel.getAttribute('data-open') === 'true';
+      if (isOpen) {
+        panel.style.maxHeight = '0px';
+        panel.style.opacity = '0';
+        label.textContent = 'See More Work';
+        arrow.style.transform = 'rotate(0deg)';
+        panel.setAttribute('data-open', 'false');
+      } else {
+        panel.style.maxHeight = panel.scrollHeight + 'px';
+        panel.style.opacity = '1';
+        label.textContent = 'See Less';
+        arrow.style.transform = 'rotate(180deg)';
+        panel.setAttribute('data-open', 'true');
+      }
+    }
+
+    const seeMoreBtn = document.getElementById('see-more-btn');
+    if (seeMoreBtn) {
+      seeMoreBtn.addEventListener('mouseenter', () => {
+        seeMoreBtn.style.background = 'var(--dark)';
+        seeMoreBtn.style.color = 'var(--white)';
+      });
+      seeMoreBtn.addEventListener('mouseleave', () => {
+        seeMoreBtn.style.background = 'transparent';
+        seeMoreBtn.style.color = 'var(--dark)';
+      });
+    }
+
+    // ── Scroll reveal ──
     const reveals = document.querySelectorAll('.reveal');
     const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry, i) => {
+      entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          setTimeout(() => entry.target.classList.add('visible'), i * 80);
+          entry.target.classList.add('visible');
           observer.unobserve(entry.target);
         }
       });
-    }, { threshold: 0.12 });
+    }, { threshold: 0.1 });
     reveals.forEach(el => observer.observe(el));
   </script>
-
 </body>
 </html>
