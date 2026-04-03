@@ -202,6 +202,91 @@
       filter: grayscale(0%);
     }
 
+    /* ── FEATURED CARDS ── */
+    .featured-card {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      overflow: hidden;
+      margin-bottom: 40px;
+      text-decoration: none;
+      color: inherit;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .featured-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 24px 56px rgba(28,26,25,0.09);
+    }
+    .featured-card-reverse {
+      direction: rtl;
+    }
+    .featured-card-reverse > * {
+      direction: ltr;
+    }
+    .featured-card-img {
+      aspect-ratio: 4/3;
+      overflow: hidden;
+    }
+    .featured-card-img .project-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: grayscale(100%);
+      transition: filter 0.4s ease;
+    }
+    .featured-card:hover .featured-card-img .project-img {
+      filter: grayscale(0%);
+    }
+    .featured-card-info {
+      padding: 48px 52px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 14px;
+    }
+    .featured-card-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 34px;
+      font-weight: 400;
+      color: var(--dark);
+      line-height: 1.15;
+    }
+    .featured-card-subtitle {
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      color: var(--rose);
+      text-transform: uppercase;
+    }
+    .featured-card-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 8px;
+    }
+    .featured-tag {
+      padding: 5px 14px;
+      border-radius: 20px;
+      font-size: 11.5px;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      background: var(--blush);
+      color: var(--dark);
+      opacity: 0.9;
+    }
+    @media (max-width: 900px) {
+      .featured-card,
+      .featured-card-reverse {
+        grid-template-columns: 1fr;
+        direction: ltr;
+      }
+      .featured-card-img { aspect-ratio: 16/9; }
+      .featured-card-info { padding: 32px 28px; }
+    }
+
     /* ── RESUME ── */
     #resume { background: var(--white); }
     .resume-layout {
@@ -309,6 +394,7 @@
     <ul class="nav-links">
       <li><a href="#about">About</a></li>
       <li><a href="#projects">Work</a></li>
+      <li><a href="#writing">Writing</a></li>
       <li><a href="#resume">Résumé</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
@@ -318,9 +404,9 @@
   <section id="hero">
     <div class="hero-bg-circle"></div>
     <div class="hero-content">
-      <div class="hero-tag">AI Design Leader</div>
-      <h1>Designing AI Experiences with<br><em>intention</em> &amp;<br>clarity.</h1>
-      <p class="hero-sub">Hi, I'm Jenn Kong, currently a staff designer at Included Health and design lead for our innovation team. I craft cutting-edge, unprecedented product evolutions and set our design best practices around AI solutions. I believe in helping missions that do good for our society and our planet.</p>
+      <div class="hero-tag">Design Director · AI · Health Tech</div>
+      <h1>Building the teams and vision behind AI products that<br><em>earn trust</em> &amp;<br>drive change.</h1>
+      <p class="hero-sub">Hi, I'm Jenn Kong, a Staff Product Designer at Included Health and design lead for our AI innovation team. I set design strategy, grow design talent, and lead the end-to-end design of AI products at the frontier of healthcare. I'm looking for a Director of Design role where I can scale my impact across a larger team and bolder mission.</p>
       <div class="btn-row">
         <a href="#projects" class="btn btn-primary">View My Work</a>
         <a href="#contact" class="btn btn-outline">Get In Touch</a>
@@ -331,12 +417,12 @@
   <!-- ABOUT -->
   <section id="about">
     <div class="section-label">About Me</div>
-    <h2>A design leader who embraces ambiguity with<br> <em>curiosity</em>, a <em>can-do</em> attitude <br> & an <em>ego-free</em> mindset.</h2>
+    <h2>A design director who turns ambiguity into<br><em>strategy</em>, <em>alignment</em><br>& products that matter.</h2>
     <div class="about-grid">
       <div class="about-text reveal">
-        <p>Words often to describe me: "out-of-the-box thinker", "a pioneer", and "thoughtful about the details". This has led me to believe that my edge as a design leader is someone who <em>gives a shit </em> and will do whatever it takes to ensure the end product makes a positive difference for the user. My process is rooted in empathy, collaboration, scalability and growth.</p>
-        <p>With a product design background spanning mobile apps, web platforms, and internal tools, I bring a systems-design thinking, research-led approach to every project. I believe the best design is the kind users never have to think throughout their entire journey.</p>
-        <p>When I'm not designing, you might find me playing the drums, playing pick-up volleyball, and painting with my kids.</p>
+        <p>I've spent over a decade leading design at the intersection of AI and healthcare — and what sets me apart is the ability to operate at every altitude. I can sit in a boardroom aligning executives on a product vision, then turn around and coach a designer through a tough research synthesis.</p>
+        <p>At Included Health, I've defined the AI design strategy for our innovation team, led the vision and execution of a multi-agent healthcare assistant, and established the design principles and patterns that now guide how our company builds AI. I believe that great design leadership means building the conditions for great work — clear direction, strong culture, and the psychological safety for teams to take creative risks.</p>
+        <p>When I'm not leading design, you might find me playing the drums, playing pick-up volleyball, and painting with my kids.</p>
         <div class="skills-list">
           <span class="skill-chip">Object-oriented UX</span>
           <span class="skill-chip">Discovery Research</span>
@@ -360,96 +446,94 @@
   <section id="projects">
     <div class="projects-header reveal">
       <div class="section-label">Selected Work</div>
-      <h2>Projects &amp; Processes</h2>
+      <h2>Featured Case Studies</h2>
       <div class="divider"></div>
     </div>
-    <!-- Primary 3 projects: 04, 03, 05 -->
-    <div class="projects-grid">
-      <a href="case-studies/analytics-dashboard.html" class="project-card">
-        <div class="project-thumb project-thumb-4" style="padding:0; overflow:hidden;">
-          <img src="images/JBTD.png" alt="Multi-agent AI system" class="project-img" /></div>
-        <div class="project-info">
-          <div class="project-category">Orchestrating Agents · 2026</div>
-          <div class="project-title">Multi-agent AI system</div>
-          <p class="project-desc">Led a cross-functional team of designers and product managers to deliver a production-ready agentic AI product from concept to release.</p>
-        </div>
-      </a>
-      <a href="case-studies/design-system.html" class="project-card">
-        <div class="project-thumb project-thumb-3" style="padding:0; overflow:hidden;">
-          <img src="images/AI-Design-Patterns-workshop.png" alt="Design Patterns to Build Trust" class="project-img" /></div>
-        <div class="project-info">
-          <div class="project-category">AI Design System · 2026</div>
-          <div class="project-title">Design Patterns to Build Trust</div>
-          <p class="project-desc">Established a set of AI values, principles and UI design patterns for our company's AI first strategy.</p>
-        </div>
-      </a>
-      <a href="case-studies/brand-identity.html" class="project-card">
-        <div class="project-thumb project-thumb-5" style="padding:0; overflow:hidden;">
-          <img src="images/AI-Design-Patterns-Inspo.png" alt="Branding and Design for an AI Assistant" class="project-img" /></div>
-        <div class="project-info">
-          <div class="project-category">Digital healthcare assistant · 2025</div>
-          <div class="project-title">Branding and Design for an AI Assistant</div>
-          <p class="project-desc">Led the design and brand identity of our company's newest employee - a personalized digital healthcare assistant named Dot.</p>
-        </div>
-      </a>
-    </div>
 
-    <!-- See More toggle -->
-    <div style="text-align:center; margin-top: 48px;">
-      <button id="see-more-btn" onclick="toggleMoreProjects()" style="
-        background: transparent;
-        border: 1px solid var(--dark);
-        color: var(--dark);
-        padding: 13px 36px;
-        border-radius: 40px;
-        font-family: 'DM Sans', sans-serif;
-        font-size: 13px;
-        font-weight: 500;
-        letter-spacing: 0.08em;
-        text-transform: uppercase;
-        cursor: pointer;
-        transition: all 0.25s;
-        display: inline-flex;
-        align-items: center;
-        gap: 10px;
-      ">
-        <span id="see-more-label">See More Work</span>
-        <span id="see-more-arrow" style="display:inline-block; transition: transform 0.3s;">↓</span>
-      </button>
-    </div>
-
-    <!-- Hidden projects: 01, 02, 06 -->
-    <div id="more-projects" style="overflow: hidden; max-height: 0; transition: max-height 0.6s ease, opacity 0.5s ease; opacity: 0;">
-      <div class="projects-grid" style="margin-top: 28px;">
-        <a href="case-studies/AIDesignWorkshop.html" class="project-card">
-          <div class="project-thumb project-thumb-1" style="padding:0; overflow:hidden;">
-            <img src="images/AI-Workshop.jpg" alt="A Hitchhiker's Guide to AI Design" class="project-img" /></div>
-          <div class="project-info">
-            <div class="project-category">AI Design Framework · 2025</div>
-            <div class="project-title">A Hitchhiker's Guide to the AI Design</div>
-            <p class="project-desc">A workshop that provides product designers with a framework and set of templates to help wrangle in the AI hype and build products that matter.</p>
-          </div>
-        </a>
-        <a href="case-studies/ecommerce-redesign.html" class="project-card">
-          <div class="project-thumb project-thumb-2" style="padding:0; overflow:hidden;">
-            <img src="images/WendyJourney.jpg" alt="Reimagining an AI-Assistant" class="project-img" /></div>
-          <div class="project-info">
-            <div class="project-category">Innovation Workshop · 2024</div>
-            <div class="project-title">Reimagining an AI-Assistant</div>
-            <p class="project-desc">Defined and aligned the product vision for Dot, an AI healthcare assistant — synthesizing 320+ ideas into a focused set of concepts.</p>
-          </div>
-        </a>
-        <a href="case-studies/accessibility-audit.html" class="project-card">
-          <div class="project-thumb project-thumb-6" style="padding:0; overflow:hidden;">
-            <img src="images/HMWs.jpg" alt="Early exploration of GenAI in healthcare" class="project-img" /></div>
-          <div class="project-info">
-            <div class="project-category">AI-assisted documentation · 2023</div>
-            <div class="project-title">Early exploration of GenAI in healthcare AI</div>
-            <p class="project-desc">Researched, designed, and tested an AI-assisted tool for clinicians and presented findings at a conference in 2023, among the early adopters of GenAI in clinical workflows.</p>
-          </div>
-        </a>
+    <!-- Featured Case Study 1 -->
+    <a href="case-studies/analytics-dashboard.html" class="featured-card reveal">
+      <div class="featured-card-img">
+        <img src="images/JBTD.png" alt="The Dot Platform" class="project-img" />
       </div>
+      <div class="featured-card-info">
+        <div class="project-category">Included Health · 2024–2026</div>
+        <div class="featured-card-title">The Dot Platform</div>
+        <p class="featured-card-subtitle">Vision → Brand → Shipped Multi-Agent AI System</p>
+        <p class="project-desc">From aligning leadership on a bold product vision — synthesizing 320+ ideas into 7 concepts — to building the brand identity and shipping a production-ready multi-agent AI healthcare assistant. This is the full arc of how Dot came to life, and how I led design every step of the way.</p>
+        <div class="featured-card-tags">
+          <span class="featured-tag">Innovation Strategy</span>
+          <span class="featured-tag">Multi-Agent AI</span>
+          <span class="featured-tag">Brand Identity</span>
+          <span class="featured-tag">Cross-functional Leadership</span>
+        </div>
+      </div>
+    </a>
+
+    <!-- Featured Case Study 2 -->
+    <a href="case-studies/design-system.html" class="featured-card featured-card-reverse reveal">
+      <div class="featured-card-img">
+        <img src="images/AI-Design-Patterns-workshop.png" alt="Building AI Design Culture" class="project-img" />
+      </div>
+      <div class="featured-card-info">
+        <div class="project-category">Included Health · 2023–2026</div>
+        <div class="featured-card-title">Building AI Design Culture</div>
+        <p class="featured-card-subtitle">Frameworks → Patterns → Org-wide Impact</p>
+        <p class="project-desc">Design leadership isn't just about what you ship — it's about raising the ceiling for everyone around you. This is the story of how I built the frameworks, design patterns, and learning culture that helped our teams design AI products with more confidence, consistency, and intention.</p>
+        <div class="featured-card-tags">
+          <span class="featured-tag">AI Design Patterns</span>
+          <span class="featured-tag">Design Frameworks</span>
+          <span class="featured-tag">Hackathons</span>
+          <span class="featured-tag">Mentorship</span>
+        </div>
+      </div>
+    </a>
+  </section>
+
+  <!-- WRITING -->
+  <section id="writing" style="background: var(--white);">
+    <div class="reveal">
+      <div class="section-label">Thought Leadership</div>
+      <h2>Writing &amp; Talks</h2>
+      <div class="divider"></div>
     </div>
+    <div class="projects-grid" style="margin-top: 48px;">
+
+      <a href="https://medium.com/@jennifer.kong/5-ux-design-tips-for-tackling-the-ai-unknowns-27feb97d7f80" target="_blank" class="project-card reveal">
+        <div class="project-thumb project-thumb-4" style="display:flex; align-items:center; justify-content:center; font-size:13px; letter-spacing:0.08em; text-transform:uppercase; color:var(--mid); font-family:'DM Sans',sans-serif;">Medium · Article</div>
+        <div class="project-info">
+          <div class="project-category">AI Design · UX Strategy</div>
+          <div class="project-title">5 UX Design Tips for Tackling the AI Unknowns</div>
+          <p class="project-desc">Actionable guidance for designing with AI — focused on clarity, trust, and iterative validation. ↗</p>
+        </div>
+      </a>
+
+      <a href="https://rosenverse.rosenfeldmedia.com/videos/case-study-journeying-toward-ai-assisted-documentation-in-healthcare" target="_blank" class="project-card reveal">
+        <div class="project-thumb project-thumb-3" style="display:flex; align-items:center; justify-content:center; font-size:13px; letter-spacing:0.08em; text-transform:uppercase; color:var(--mid); font-family:'DM Sans',sans-serif;">Rosenfeld · Talk</div>
+        <div class="project-info">
+          <div class="project-category">Conference Talk · Designing with AI 2024</div>
+          <div class="project-title">Journeying Toward AI-Assisted Documentation in Healthcare</div>
+          <p class="project-desc">A case study presented at Rosenfeld Media's Designing with AI conference on early GenAI adoption in clinical workflows. ↗</p>
+        </div>
+      </a>
+
+      <a href="https://medium.com/@jennifer.kong/designing-with-intention-16508daa57da" target="_blank" class="project-card reveal">
+        <div class="project-thumb project-thumb-5" style="display:flex; align-items:center; justify-content:center; font-size:13px; letter-spacing:0.08em; text-transform:uppercase; color:var(--mid); font-family:'DM Sans',sans-serif;">Medium · Article</div>
+        <div class="project-info">
+          <div class="project-category">Design Philosophy</div>
+          <div class="project-title">Designing with Intention</div>
+          <p class="project-desc">A reflection on purposeful design practice — aligning outcomes with user needs and organizational goals. ↗</p>
+        </div>
+      </a>
+
+      <a href="https://medium.com/included-health-design/how-volleyball-can-help-you-to-survive-and-thrive-on-a-design-team-a57044cc815b" target="_blank" class="project-card reveal">
+        <div class="project-thumb project-thumb-1" style="display:flex; align-items:center; justify-content:center; font-size:13px; letter-spacing:0.08em; text-transform:uppercase; color:var(--mid); font-family:'DM Sans',sans-serif;">Medium · Article</div>
+        <div class="project-info">
+          <div class="project-category">Design Culture · Team Leadership</div>
+          <div class="project-title">Volleyball for Design Teams</div>
+          <p class="project-desc">How volleyball can help you survive and thrive on a design team — practical collaboration lessons from a sports metaphor. ↗</p>
+        </div>
+      </a>
+
     </div>
   </section>
 
