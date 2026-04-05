@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>The Dot Platform</title>
+  <title>Analytics Dashboard — Jenn Kong</title>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
   <style>
     :root {
@@ -376,7 +376,7 @@
       </div>
       <div class="overview-item">
         <h3>Tools</h3>
-        <p>Figma for wireframes and flows; FigmaMake and Cursor for AI prototyping; Langsmith for model evaluation and prompt design, Rally, Marvin and Maze for user research.</p>
+        <p>Figma for wireframes and flows, FigmaMake and Cursor for AI prototyping, Langsmith for model evaluation and prompt design, Rally, Marvig and Maze for user research.</p>
       </div>
     </div>
   </section>
@@ -390,6 +390,10 @@
       <p>Included Health helps major US employers improve employee health literacy, benefits access, and overall wellbeing — affordably. We position ourselves as a modern, AI-powered, human-driven healthcare company.</p>
       <p>As we scaled amid rising costs and chronic disease rates, we needed a smarter strategy: proactively connecting patients to the right care before small problems became expensive ones. We needed to go beyond reactive support and build something that could meet members where they were — intelligently, personally, and at scale.</p>
       <p>The answer was Dot: an AI platform designed to be the connective tissue across the user's entire healthcare journey.</p>
+      <div class="case-video" style="margin-top: 40px;">
+        <img src="../images/DotIntro.gif" alt="Dot Platform — product introduction" style="width:100%; display:block; max-height:520px; object-fit:contain;" />
+      </div>
+      <div class="case-video-label">Dot Platform — product introduction</div>
     </div>
   </section>
 
@@ -413,11 +417,13 @@
         <!-- Carousel -->
         <div class="carousel-wrapper">
           <div class="carousel-track" id="carouselTrack">
-            <div class="carousel-slide"><img src="../images/WendyJourney.jpg" alt="Wendy's Journey — user research map" /></div>
-            <div class="carousel-slide"><img src="../images/HMWTrustDot.jpg" alt="HMW Build Trust — design sprint board" /></div>
-            <div class="carousel-slide"><img src="../images/HMWs.jpg" alt="HMW sticky note wall — 320 ideas" /></div>
-            <div class="carousel-slide"><img src="../images/320ideas.jpg" alt="320 concept sketches spread on table" /></div>
-            <div class="carousel-slide"><img src="../images/multi-agent-flow.png" alt="Multi-agent system flow diagram" /></div>
+            <div class="carousel-slide"><img src="../images/WendyJourney.jpg" alt="Wendy's Journey — pain points" /></div>
+            <div class="carousel-slide"><img src="../images/HMWs.jpg" alt="How Might We sticky note wall" /></div>
+            <div class="carousel-slide"><img src="../images/HMWTrustDot.jpg" alt="HMW build trust brainstorm" /></div>
+            <div class="carousel-slide"><img src="../images/320ideas.jpg" alt="320 concept sketches" /></div>
+            <div class="carousel-slide"><img src="../images/7-concepts.png" alt="7 themes" /></div>
+            <div class="carousel-slide"><img src="../images/bw-concepts.png" alt="Visualization of concepts" /></div>
+            <div class="carousel-slide"><img src="../images/multi-agent-flow.png" alt="Multi-agent flow" /></div>
           </div>
           <button class="carousel-btn carousel-btn-prev" onclick="moveCarousel(-1)">‹</button>
           <button class="carousel-btn carousel-btn-next" onclick="moveCarousel(1)">›</button>
@@ -428,16 +434,23 @@
           <button class="carousel-dot" onclick="goToSlide(2)"></button>
           <button class="carousel-dot" onclick="goToSlide(3)"></button>
           <button class="carousel-dot" onclick="goToSlide(4)"></button>
+          <button class="carousel-dot" onclick="goToSlide(5)"></button>
+          <button class="carousel-dot" onclick="goToSlide(6)"></button>
+          <button id="pauseBtn" onclick="togglePause()" style="
+            background: transparent;
+            border: 1px solid var(--border);
+            color: var(--mid);
+            width: 28px; height: 28px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 10px;
+            display: flex; align-items: center; justify-content: center;
+            transition: all 0.2s;
+            margin-left: 4px;
+          ">⏸</button>
         </div>
-        <div class="carousel-caption" id="carouselCaption">Wendy's Journey — user research map</div>
+        <div class="carousel-caption" id="carouselCaption">Wendy's Journey — pain points</div>
 
-        <!-- Video -->
-        <div class="case-video">
-          <video controls preload="metadata">
-            <source src="../images/DotIntro.mp4" type="video/mp4">
-          </video>
-        </div>
-        <div class="case-video-label">Dot Platform — product introduction</div>
       </div>
     </div>
   </section>
@@ -517,7 +530,7 @@
     <h2>More Work</h2>
     <div class="divider"></div>
     <p>Interested in seeing how I build AI design culture and frameworks across an organization?</p>
-    <a href="../index.html#projects" class="btn btn-outline">Back to Portfolio</a>
+    <a href="../index.html#projects" class="btn btn-outline">Next Case Study</a>
   </section>
 
   <!-- FOOTER -->
@@ -527,15 +540,17 @@
 
   <script>
     const captions = [
-      'Wendy\'s Journey — user research map',
-      'HMW Build Trust — design sprint board',
-      'HMW sticky note wall — 320 ideas',
-      '320 concept sketches spread on table',
-      'Multi-agent system flow diagram'
+      'Wendy\'s Journey — pain points',
+      'How Might We sticky note wall',
+      'HMW build trust brainstorm',
+      '320 concept sketches',
+      '7 themes',
+      'Visualization of concepts',
+      'Multi-agent flow'
     ];
 
     let current = 0;
-    const total = 5;
+    const total = 7;
 
     function updateCarousel() {
       document.getElementById('carouselTrack').style.transform = `translateX(-${current * 100}%)`;
@@ -548,15 +563,44 @@
     function moveCarousel(dir) {
       current = (current + dir + total) % total;
       updateCarousel();
+      pauseCarousel();
     }
 
     function goToSlide(index) {
       current = index;
       updateCarousel();
+      pauseCarousel();
     }
 
-    // Auto-advance every 4 seconds
-    setInterval(() => moveCarousel(1), 4000);
+    // Auto-advance every 4 seconds, pause on hover or manual interaction
+    let autoPlay = setInterval(() => moveCarousel(1), 4000);
+    let isPaused = false;
+
+    function pauseCarousel() {
+      clearInterval(autoPlay);
+      isPaused = true;
+      document.getElementById('pauseBtn').textContent = '▶';
+    }
+
+    function resumeCarousel() {
+      autoPlay = setInterval(() => moveCarousel(1), 4000);
+      isPaused = false;
+      document.getElementById('pauseBtn').textContent = '⏸';
+    }
+
+    function togglePause() {
+      isPaused ? resumeCarousel() : pauseCarousel();
+    }
+
+    // Pause on hover
+    document.querySelector('.carousel-wrapper').addEventListener('mouseenter', pauseCarousel);
+    document.querySelector('.carousel-wrapper').addEventListener('mouseleave', () => {
+      if (!isPaused) resumeCarousel();
+    });
+
+    // Clicking dots or arrows pauses auto-advance
+    const origMove = moveCarousel;
+    const origGoto = goToSlide;
   </script>
 </body>
 </html>
