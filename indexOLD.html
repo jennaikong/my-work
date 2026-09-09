@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Jenn Kong — Design Lead, AI</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400;1,500&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --sand:      #f0ebe0;
+      --stone:     #e4ddd0;
+      --pebble:    #c8bfb0;
+      --terra:     #b85c38;
+      --terra-dk:  #8f3e22;
+      --terra-lt:  #d4795a;
+      --ink:       #1a1714;
+      --charcoal:  #2e2a26;
+      --mid:       #7a7268;
+      --white:     #faf8f4;
+      --border:    #d8d0c4;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--sand);
+      color: var(--ink);
+      font-size: 15px;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 20px 48px;
+      background: rgba(240,235,224,0.92);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-logo {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 13px; font-weight: 600; letter-spacing: 0.12em;
+      color: var(--ink); text-decoration: none; text-transform: uppercase;
+    }
+    .nav-links { display: flex; gap: 36px; list-style: none; align-items: center; }
+    .nav-links a {
+      font-size: 12px; font-weight: 400; letter-spacing: 0.1em;
+      text-transform: uppercase; color: var(--mid);
+      text-decoration: none; transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--terra); }
+    .nav-cta {
+      background: var(--ink); color: var(--white) !important;
+      padding: 8px 20px; font-size: 11px !important; letter-spacing: 0.12em !important;
+      transition: background 0.25s !important;
+    }
+    .nav-cta:hover { background: var(--terra) !important; color: var(--white) !important; }
+
+    /* ── HERO ── */
+    #hero {
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      padding-top: 80px;
+      background: var(--white);
+      overflow: hidden;
+    }
+    .hero-left {
+      padding: 80px 64px 80px 48px;
+      display: flex; flex-direction: column; justify-content: center;
+      border-right: 1px solid var(--border);
+    }
+    .hero-eyebrow {
+      font-size: 11px; font-weight: 500; letter-spacing: 0.2em;
+      text-transform: uppercase; color: var(--terra);
+      margin-bottom: 32px;
+      display: flex; align-items: center; gap: 12px;
+    }
+    .hero-eyebrow::before {
+      content: ''; width: 32px; height: 1px; background: var(--terra);
+    }
+    h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(52px, 6vw, 82px);
+      font-weight: 300; line-height: 1.02; letter-spacing: -0.02em;
+      color: var(--ink); margin-bottom: 36px;
+    }
+    h1 em { font-style: italic; color: var(--terra); font-weight: 300; }
+    .hero-sub {
+      font-size: 15px; color: var(--mid); max-width: 440px;
+      line-height: 1.85; margin-bottom: 52px; font-weight: 300;
+    }
+    .btn-row { display: flex; gap: 12px; flex-wrap: wrap; }
+    .btn {
+      display: inline-block; padding: 13px 28px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 11px; font-weight: 500; letter-spacing: 0.14em;
+      text-transform: uppercase; text-decoration: none;
+      transition: all 0.3s;
+    }
+    .btn-primary { background: var(--terra); color: var(--white); }
+    .btn-primary:hover { background: var(--terra-dk); transform: translateY(-2px); }
+    .btn-outline { background: transparent; color: var(--ink); border: 1px solid var(--ink); }
+    .btn-outline:hover { background: var(--ink); color: var(--white); transform: translateY(-2px); }
+
+    .hero-right {
+      position: relative; overflow: hidden;
+      background: var(--stone);
+    }
+    .hero-right img {
+      width: 100%; height: 100%; object-fit: cover;
+      filter: grayscale(20%);
+      transition: filter 0.6s ease;
+    }
+    .hero-right:hover img { filter: grayscale(0%); }
+    .hero-caption {
+      position: absolute; bottom: 32px; left: 32px; right: 32px;
+      background: rgba(26,23,20,0.78); backdrop-filter: blur(8px);
+      padding: 16px 20px;
+    }
+    .hero-caption p {
+      font-size: 12px; color: rgba(250,248,244,0.75);
+      letter-spacing: 0.06em; line-height: 1.5;
+    }
+    .hero-caption strong { color: var(--white); font-weight: 500; }
+
+    /* ── SECTION LABEL ── */
+    .section-label {
+      font-size: 10px; font-weight: 600; letter-spacing: 0.24em;
+      text-transform: uppercase; color: var(--terra);
+      margin-bottom: 24px;
+      display: flex; align-items: center; gap: 12px;
+    }
+    .section-label::after {
+      content: ''; flex: 1; max-width: 40px; height: 1px; background: var(--terra);
+    }
+    h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(36px, 4vw, 54px); font-weight: 300;
+      line-height: 1.1; color: var(--ink);
+    }
+    h2 em { font-style: italic; color: var(--terra); }
+    .divider { width: 40px; height: 2px; background: var(--terra); margin: 28px 0; }
+
+    /* ── ABOUT ── */
+    #about {
+      background: var(--sand);
+      padding: 0;
+      display: grid;
+      grid-template-columns: 380px 1fr;
+      min-height: 80vh;
+    }
+    .about-sidebar {
+      background: var(--charcoal);
+      padding: 80px 48px;
+      display: flex; flex-direction: column; justify-content: center;
+    }
+    .about-sidebar .section-label { color: var(--terra-lt); }
+    .about-sidebar .section-label::after { background: var(--terra-lt); }
+    .about-sidebar h2 { color: var(--white); font-size: clamp(28px, 3vw, 40px); }
+    .about-main { padding: 80px 72px; display: flex; flex-direction: column; justify-content: center; }
+    .about-text p { color: var(--mid); margin-bottom: 20px; font-size: 15.5px; line-height: 1.85; font-weight: 300; }
+    .pull-quote {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(22px, 2.5vw, 30px); font-style: italic;
+      font-weight: 300; color: var(--terra);
+      line-height: 1.35; margin: 40px 0;
+      padding-left: 28px;
+      border-left: 3px solid var(--terra);
+    }
+    .skills-list { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 36px; }
+    .skill-chip {
+      padding: 6px 14px; font-size: 11px; font-weight: 500;
+      letter-spacing: 0.08em; text-transform: uppercase;
+      background: transparent; color: var(--charcoal);
+      border: 1px solid var(--pebble);
+      transition: all 0.25s;
+    }
+    .skill-chip:hover { background: var(--charcoal); color: var(--sand); border-color: var(--charcoal); }
+
+    /* ── PROJECTS ── */
+    #projects { background: var(--white); padding: 100px 48px; }
+    .projects-header {
+      display: grid; grid-template-columns: 1fr 1fr;
+      align-items: end; gap: 40px; margin-bottom: 72px;
+    }
+    .projects-header-right p {
+      font-size: 14px; color: var(--mid); line-height: 1.8; font-weight: 300;
+      max-width: 400px;
+    }
+
+    /* Featured cards — asymmetric editorial layout */
+    .featured-card {
+      display: grid; grid-template-columns: 55% 1fr;
+      background: var(--sand); overflow: hidden;
+      margin-bottom: 4px;
+      text-decoration: none; color: inherit;
+      transition: opacity 0.3s;
+    }
+    .featured-card:hover { opacity: 0.92; }
+    .featured-card-reverse { grid-template-columns: 1fr 55%; }
+    .featured-card-reverse .featured-card-img { order: 2; }
+    .featured-card-reverse .featured-card-info { order: 1; }
+
+    .featured-card-img {
+      overflow: hidden; aspect-ratio: unset; min-height: 420px;
+    }
+    .featured-card-img .project-img {
+      width: 100%; height: 100%; object-fit: cover;
+      filter: grayscale(30%);
+      transition: filter 0.6s ease, transform 0.6s ease;
+    }
+    .featured-card:hover .featured-card-img .project-img {
+      filter: grayscale(0%); transform: scale(1.03);
+    }
+    .featured-card-info {
+      padding: 64px 56px;
+      display: flex; flex-direction: column; justify-content: center; gap: 16px;
+      background: var(--stone);
+    }
+    .featured-card-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 80px; font-weight: 700; color: rgba(26,23,20,0.06);
+      line-height: 1; margin-bottom: -20px;
+    }
+    .featured-card-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(28px, 3vw, 40px); font-weight: 300;
+      color: var(--ink); line-height: 1.1;
+    }
+    .featured-card-subtitle {
+      font-size: 11px; font-weight: 600; letter-spacing: 0.14em;
+      color: var(--terra); text-transform: uppercase;
+    }
+    .featured-card-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 12px; }
+    .featured-tag {
+      padding: 4px 12px; font-size: 10px; font-weight: 600;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      background: var(--pebble); color: var(--charcoal);
+    }
+    @media (max-width: 900px) {
+      .featured-card, .featured-card-reverse { grid-template-columns: 1fr; }
+      .featured-card-reverse .featured-card-img { order: 0; }
+      .featured-card-reverse .featured-card-info { order: 0; }
+      .featured-card-img { min-height: 280px; }
+      .featured-card-info { padding: 40px 32px; }
+    }
+
+    /* Writing grid */
+    #writing { background: var(--sand); padding: 100px 48px; }
+    .writing-header {
+      display: grid; grid-template-columns: 1fr 2fr;
+      gap: 60px; align-items: start; margin-bottom: 64px;
+    }
+    .projects-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; }
+    .project-card {
+      background: var(--stone); overflow: hidden;
+      text-decoration: none; color: inherit; display: block;
+      transition: background 0.3s;
+    }
+    .project-card:hover { background: var(--pebble); }
+    .project-thumb {
+      aspect-ratio: 16/10; overflow: hidden; position: relative;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--mid);
+    }
+    .project-thumb-1, .project-thumb-2, .project-thumb-3,
+    .project-thumb-4, .project-thumb-5, .project-thumb-6 {
+      background: var(--charcoal);
+    }
+    .project-info { padding: 24px 24px 28px; }
+    .project-category {
+      font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase;
+      color: var(--terra); font-weight: 600; margin-bottom: 10px;
+    }
+    .project-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 20px; font-weight: 300; color: var(--ink);
+      margin-bottom: 10px; line-height: 1.25;
+    }
+    .project-desc { font-size: 13px; color: var(--mid); line-height: 1.7; font-weight: 300; }
+
+    .project-img {
+      width: 100%; height: 100%; object-fit: cover;
+      filter: grayscale(20%);
+      transition: filter 0.5s ease, transform 0.5s ease;
+      display: block;
+    }
+    .project-card:hover .project-img { filter: grayscale(0%); transform: scale(1.04); }
+    .project-thumb img.project-img { position: absolute; inset: 0; }
+
+    /* ── RESUME ── */
+    #resume {
+      background: var(--ink); color: var(--white);
+      padding: 100px 48px;
+    }
+    #resume .section-label { color: var(--terra-lt); }
+    #resume .section-label::after { background: var(--terra-lt); }
+    #resume h2 { color: var(--white); margin-bottom: 72px; }
+    .resume-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; }
+    .resume-section h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 22px; font-weight: 300; color: var(--terra-lt);
+      margin-bottom: 32px; padding-bottom: 16px;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+    .resume-item { margin-bottom: 32px; }
+    .resume-item-header {
+      display: flex; justify-content: space-between; align-items: baseline;
+      margin-bottom: 4px; gap: 12px;
+    }
+    .resume-role { font-weight: 500; font-size: 14px; color: var(--white); }
+    .resume-date {
+      font-size: 11px; color: var(--terra-lt); letter-spacing: 0.08em;
+      white-space: nowrap; font-weight: 400;
+    }
+    .resume-place { font-size: 12px; color: rgba(250,248,244,0.4); margin-bottom: 6px; }
+    .resume-desc { font-size: 13px; color: rgba(250,248,244,0.55); line-height: 1.75; font-weight: 300; }
+    .resume-desc a { color: var(--terra-lt); text-decoration: none; }
+    .resume-desc a:hover { opacity: 0.75; }
+    .resume-btn-row { margin-top: 56px; }
+
+    /* ── CONTACT ── */
+    #contact { background: var(--stone); padding: 120px 48px; }
+    .contact-inner {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 80px; align-items: center;
+    }
+    .contact-left h2 { font-size: clamp(42px, 5vw, 72px); }
+    .contact-right { display: flex; flex-direction: column; gap: 24px; }
+    .contact-sub {
+      font-size: 15px; color: var(--mid); line-height: 1.85; font-weight: 300;
+    }
+    .contact-email {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(20px, 2.5vw, 28px); font-style: italic;
+      color: var(--terra); text-decoration: none; font-weight: 300;
+      transition: color 0.2s;
+    }
+    .contact-email:hover { color: var(--terra-dk); }
+    .contact-links { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 8px; }
+    .contact-link {
+      display: inline-block; padding: 10px 22px;
+      font-size: 11px; font-weight: 500; letter-spacing: 0.12em;
+      text-transform: uppercase; text-decoration: none;
+      border: 1px solid var(--pebble); color: var(--charcoal);
+      transition: all 0.3s;
+    }
+    .contact-link:hover { background: var(--ink); color: var(--white); border-color: var(--ink); }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--ink); color: rgba(250,248,244,0.2);
+      text-align: center; font-size: 11px; letter-spacing: 0.1em;
+      padding: 24px 48px; border-top: 1px solid rgba(255,255,255,0.05);
+    }
+
+    /* ── ANIMATIONS ── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(32px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .reveal {
+      opacity: 0; transform: translateY(24px);
+      transition: opacity 0.9s cubic-bezier(0.16,1,0.3,1), transform 0.9s cubic-bezier(0.16,1,0.3,1);
+    }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 1024px) {
+      #hero { grid-template-columns: 1fr; }
+      .hero-right { min-height: 50vw; }
+      #about { grid-template-columns: 1fr; }
+      .about-sidebar { padding: 60px 40px; }
+      .about-main { padding: 60px 40px; }
+      .projects-header { grid-template-columns: 1fr; }
+      .contact-inner { grid-template-columns: 1fr; }
+      .writing-header { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 900px) {
+      nav { padding: 18px 24px; }
+      #hero, #about { padding-top: 0; }
+      .hero-left { padding: 60px 28px; }
+      #projects, #writing, #resume, #contact { padding: 72px 28px; }
+      .resume-layout { grid-template-columns: 1fr; gap: 48px; }
+      .projects-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 600px) {
+      .nav-links { display: none; }
+      .projects-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="#hero" class="nav-logo">Jenn Kong</a>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#projects">Work</a></li>
+      <li><a href="#writing">Writing</a></li>
+      <li><a href="#resume">Résumé</a></li>
+      <li><a href="#contact" class="nav-cta">Get In Touch</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section id="hero">
+    <div class="hero-left">
+      <div class="hero-eyebrow">Design Lead · Frontier AI</div>
+      <h1>Designing AI products that <em>earn trust</em> at scale.</h1>
+      <p class="hero-sub">Staff Product Designer leading AI design strategy at Included Health. I build the teams, systems, and vision behind AI that people rely on — and I'm looking to bring that at the frontier of AI.</p>
+      <div class="btn-row">
+        <a href="#projects" class="btn btn-primary">View My Work</a>
+        <a href="#contact" class="btn btn-outline">Get In Touch</a>
+      </div>
+    </div>
+    <div class="hero-right">
+      <img src="images/main_Image.png" alt="Jenn Kong — Designing with AI conference sketch notes" />
+      <div class="hero-caption">
+        <p><strong>Jenn Kong</strong> · Design Lead, AI</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="about-sidebar reveal">
+      <div class="section-label">About Me</div>
+      <h2>Turning ambiguity into <em>strategy</em> & products that matter.</h2>
+    </div>
+    <div class="about-main reveal">
+      <div class="about-text">
+        <p>Over a decade leading design at the edge of emerging technology, I've learned to operate at every altitude — aligning executives on vision one moment, coaching a designer through research synthesis the next.</p>
+        <div class="pull-quote">"As a design lead in the AI space, I stay curious and connected. I'm still learning, just like everyone else — but with a healthy level of fearlessness and caution."</div>
+        <p>At Included Health, I set AI design strategy, led a multi-agent healthcare assistant from concept to launch, and built the design principles that now guide how our company builds with AI. I'm drawn to work where design has to keep pace with what's newly possible.</p>
+      </div>
+      <div class="skills-list">
+        <span class="skill-chip">Object-oriented UX</span>
+        <span class="skill-chip">Discovery Research</span>
+        <span class="skill-chip">AI-based Prototyping</span>
+        <span class="skill-chip">Design Systems</span>
+        <span class="skill-chip">User Research and Testing</span>
+        <span class="skill-chip">Interaction Design</span>
+        <span class="skill-chip">Workshop Facilitation</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects">
+    <div class="projects-header reveal">
+      <div>
+        <div class="section-label">Selected Work</div>
+        <h2>Featured Case Studies</h2>
+      </div>
+      <div class="projects-header-right">
+        <p>From product vision to shipped AI experiences — design leadership that changes how people navigate healthcare.</p>
+      </div>
+    </div>
+
+    <a href="case-studies/DotPlatform.html" class="featured-card reveal">
+      <div class="featured-card-img">
+        <img src="images/multi-agent-flow.png" alt="The Dot Platform" class="project-img" />
+      </div>
+      <div class="featured-card-info">
+        <div class="featured-card-num">01</div>
+        <div class="project-category">Included Health · 2025–Present</div>
+        <div class="featured-card-title">The Dot Platform</div>
+        <p class="featured-card-subtitle">Vision → Brand → Launch</p>
+        <p class="project-desc">Synthesized 320+ ideas into 7 concepts, aligned leadership on a bold vision, then built the brand and shipped a production multi-agent AI assistant.</p>
+        <div class="featured-card-tags">
+          <span class="featured-tag">Innovation Strategy</span>
+          <span class="featured-tag">Multi-Agent AI</span>
+          <span class="featured-tag">Brand Identity</span>
+          <span class="featured-tag">Cross-functional Leadership</span>
+        </div>
+      </div>
+    </a>
+
+    <a href="case-studies/AIDesignCulture.html" class="featured-card featured-card-reverse reveal">
+      <div class="featured-card-img">
+        <img src="images/AI-Design-Patterns-workshop.png" alt="Building AI Design Culture" class="project-img" />
+      </div>
+      <div class="featured-card-info">
+        <div class="featured-card-num">02</div>
+        <div class="project-category">Included Health · 2024–Present</div>
+        <div class="featured-card-title">Building AI Design Culture</div>
+        <p class="featured-card-subtitle">Frameworks → Patterns → Org-wide Impact</p>
+        <p class="project-desc">How I built the frameworks and learning culture that helped our teams design AI with confidence — and raised the ceiling for everyone around them.</p>
+        <div class="featured-card-tags">
+          <span class="featured-tag">AI Design Patterns</span>
+          <span class="featured-tag">Design Frameworks</span>
+          <span class="featured-tag">Hackathons</span>
+          <span class="featured-tag">Mentorship</span>
+        </div>
+      </div>
+    </a>
+  </section>
+
+  <!-- WRITING -->
+  <section id="writing">
+    <div class="writing-header reveal">
+      <div>
+        <div class="section-label">Thought Leadership</div>
+        <h2>Writing &amp; Talks</h2>
+        <div class="divider"></div>
+      </div>
+      <div>
+        <p style="font-size:15px; color:var(--mid); line-height:1.85; font-weight:300;">Sharing ideas at the intersection of AI, design practice, and team culture — on Medium and on stage.</p>
+      </div>
+    </div>
+    <div class="projects-grid">
+
+      <a href="https://medium.com/@jennifer.kong/5-ux-design-tips-for-tackling-the-ai-unknowns-27feb97d7f80" target="_blank" class="project-card reveal">
+        <div class="project-thumb project-thumb-4" style="padding:0; position:relative;">
+          <img src="images/writing-ai-tips.webp" alt="5 UX Design Tips for Tackling the AI Unknowns" class="project-img" onerror="this.style.display='none'; this.parentElement.style.display='flex'; this.parentElement.innerHTML='<span style=\'font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--mid)\'>Medium · Article</span>';" />
+        </div>
+        <div class="project-info">
+          <div class="project-category">AI Design · UX Strategy</div>
+          <div class="project-title">5 UX Design Tips for Tackling the AI Unknowns</div>
+          <p class="project-desc">Actionable guidance for designing with AI — focused on clarity, trust, and iterative validation. ↗</p>
+        </div>
+      </a>
+
+      <a href="https://rosenverse.rosenfeldmedia.com/videos/case-study-journeying-toward-ai-assisted-documentation-in-healthcare" target="_blank" class="project-card reveal">
+        <div class="project-thumb project-thumb-3" style="padding:0; position:relative;">
+          <img src="images/writing-rosenfeld-talk.png" alt="Journeying Toward AI-Assisted Documentation in Healthcare" class="project-img" onerror="this.style.display='none'; this.parentElement.style.display='flex'; this.parentElement.innerHTML='<span style=\'font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--mid)\'>Rosenfeld · Talk</span>';" />
+        </div>
+        <div class="project-info">
+          <div class="project-category">Conference Talk · Designing with AI 2024</div>
+          <div class="project-title">Journeying Toward AI-Assisted Documentation in Healthcare</div>
+          <p class="project-desc">A case study on early GenAI adoption in clinical workflows, presented at Rosenfeld Media. ↗</p>
+        </div>
+      </a>
+
+      <a href="https://medium.com/@jennifer.kong/designing-with-intention-16508daa57da" target="_blank" class="project-card reveal">
+        <div class="project-thumb project-thumb-5" style="padding:0; position:relative;">
+          <img src="images/writing-designing-intention.webp" alt="Designing with Intention" class="project-img" onerror="this.style.display='none'; this.parentElement.style.display='flex'; this.parentElement.innerHTML='<span style=\'font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--mid)\'>Medium · Article</span>';" />
+        </div>
+        <div class="project-info">
+          <div class="project-category">Design Philosophy</div>
+          <div class="project-title">Designing with Intention</div>
+          <p class="project-desc">A reflection on purposeful design practice — aligning outcomes with user needs and organizational goals. ↗</p>
+        </div>
+      </a>
+
+      <a href="https://medium.com/included-health-design/how-volleyball-can-help-you-to-survive-and-thrive-on-a-design-team-a57044cc815b" target="_blank" class="project-card reveal">
+        <div class="project-thumb project-thumb-1" style="padding:0; position:relative;">
+          <img src="images/writing-volleyball.webp" alt="Volleyball for Design Teams" class="project-img" onerror="this.style.display='none'; this.parentElement.style.display='flex'; this.parentElement.innerHTML='<span style=\'font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--mid)\'>Medium · Article</span>';" />
+        </div>
+        <div class="project-info">
+          <div class="project-category">Design Culture · Team Leadership</div>
+          <div class="project-title">Volleyball for Design Teams</div>
+          <p class="project-desc">How volleyball can help you survive and thrive on a design team — practical collaboration lessons from a sports metaphor. ↗</p>
+        </div>
+      </a>
+
+    </div>
+  </section>
+
+  <!-- RESUME -->
+  <section id="resume">
+    <div class="reveal">
+      <div class="section-label">Résumé</div>
+      <h2>Experience &amp; Education</h2>
+    </div>
+    <div class="resume-layout">
+      <div class="resume-section reveal">
+        <h3>Experience</h3>
+        <div class="resume-item">
+          <div class="resume-item-header">
+            <span class="resume-role">Staff Product Designer</span>
+            <span class="resume-date">Aug 2025 – Present</span>
+          </div>
+          <div class="resume-place">Included Health · Los Angeles, CA</div>
+          <p class="resume-desc">Lead AI UX design strategy and the vision for a multi-agent, personalized digital healthcare assistant.</p>
+        </div>
+        <div class="resume-item">
+          <div class="resume-item-header">
+            <span class="resume-role">Senior Product Designer</span>
+            <span class="resume-date">Feb 2022 – Jul 2025</span>
+          </div>
+          <div class="resume-place">Included Health · San Francisco, CA</div>
+          <p class="resume-desc">Built AI-powered products improving the experience of a virtual healthcare and benefits navigation service.</p>
+        </div>
+        <div class="resume-item">
+          <div class="resume-item-header">
+            <span class="resume-role">Senior UX Designer</span>
+            <span class="resume-date">Jan 2020 – Feb 2022</span>
+          </div>
+          <div class="resume-place">Zynx Health · Los Angeles, CA</div>
+          <p class="resume-desc">Applied research and design methods to help cross-functional teams build user-centered products that improve healthcare outcomes.</p>
+        </div>
+        <div class="resume-item">
+          <div class="resume-item-header">
+            <span class="resume-role">UX Designer II</span>
+            <span class="resume-date">Jul 2012 – Jun 2017</span>
+          </div>
+          <div class="resume-place">Telus Health · Vancouver, BC, Canada</div>
+          <p class="resume-desc">Led research and design for a Mobile EMR solution and Patient Portal, among other healthcare technologies.</p>
+        </div>
+      </div>
+      <div class="resume-section reveal">
+        <h3>Education</h3>
+        <div class="resume-item">
+          <div class="resume-item-header"><span class="resume-role">UX and Graphic Design</span></div>
+          <div class="resume-place">Santa Monica College</div>
+        </div>
+        <div class="resume-item">
+          <div class="resume-item-header"><span class="resume-role">M.Eng. Biomedical Engineering</span></div>
+          <div class="resume-place">University of Western Ontario</div>
+          <p class="resume-desc">Scholarship Recipient. Specialization in Human Factors for VR-Assisted Image Guided Cardiac Surgery.</p>
+        </div>
+        <div class="resume-item">
+          <div class="resume-item-header"><span class="resume-role">B.Sc. Computer Science</span></div>
+          <div class="resume-place">Queen's University</div>
+          <p class="resume-desc">Graduated with honors. Specialization in Human Computer Interaction.</p>
+        </div>
+        <h3 style="margin-top:40px;">Recognition</h3>
+        <div class="resume-item">
+          <div class="resume-item-header">
+            <span class="resume-role">Conference Talk</span>
+            <span class="resume-date">2024</span>
+          </div>
+          <div class="resume-place">Designing with AI · Rosenfeld Media</div>
+          <p class="resume-desc"><a href="https://rosenverse.rosenfeldmedia.com/videos/case-study-journeying-toward-ai-assisted-documentation-in-healthcare" target="_blank">Journeying toward AI-assisted documentation in healthcare ↗</a></p>
+        </div>
+        <h3 style="margin-top:40px;">Certifications</h3>
+        <div class="resume-item">
+          <div class="resume-item-header">
+            <span class="resume-role">AI Product Design Bootcamp</span>
+            <span class="resume-date">May 2025</span>
+          </div>
+          <div class="resume-place">STRAT</div>
+          <p class="resume-desc"><a href="https://drive.google.com/file/d/15HrHI116fsYMPHc-T-d07sj5H5gSKpmk/view" target="_blank">View Credential ↗</a></p>
+        </div>
+        <div class="resume-item">
+          <div class="resume-item-header">
+            <span class="resume-role">Certified OOUX Strategist</span>
+            <span class="resume-date">Nov 2022</span>
+          </div>
+          <div class="resume-place">Object-Oriented UX Strategist Certification</div>
+          <p class="resume-desc"><a href="https://ooux.com/people/jenniferkong" target="_blank">View Credential ↗</a></p>
+        </div>
+      </div>
+    </div>
+    <div class="resume-btn-row reveal">
+      <a href="files/Jenn_Kong_Resume_2026.pdf" target="_blank" class="btn btn-outline" style="border-color:rgba(255,255,255,0.2); color:var(--white);">Download Full Résumé (PDF)</a>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="contact-inner reveal">
+      <div class="contact-left">
+        <div class="section-label">Contact</div>
+        <h2>Let's work <em>together.</em></h2>
+      </div>
+      <div class="contact-right">
+        <p class="contact-sub">Open to Design Lead roles at the frontier of AI. Let's talk.</p>
+        <a href="mailto:jennifer.g.kong@gmail.com" class="contact-email">jennifer.g.kong@gmail.com</a>
+        <div class="contact-links">
+          <a href="https://www.linkedin.com/in/jennlokong/" target="_blank" class="contact-link">LinkedIn</a>
+          <a href="https://dribbble.com/je-ko" target="_blank" class="contact-link">Dribbble</a>
+          <a href="https://www.behance.net/jennkong" target="_blank" class="contact-link">Behance</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <span>© 2026 Jenn Kong · Designed with care</span>
+  </footer>
+
+  <script>
+    const reveals = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.08 });
+    reveals.forEach(el => observer.observe(el));
+  </script>  <!-- Elfsight AI Chatbot | Jenn Kong - AI rep -->
+  <script src="https://elfsightcdn.com/platform.js" async></script>
+  <div class="elfsight-app-141355e9-4163-460e-a65b-459ceb472e81" data-elfsight-app-lazy></div>
+
+</body>
+</html>

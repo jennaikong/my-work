@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Information Architecture Re-design — Jenn Kong</title>
+  <link rel="stylesheet" href="../styles.css" />
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="../index.html" class="nav-logo">Jenn Kong</a>
+    <a href="../index.html#projects" class="nav-back">← Back to Work</a>
+  </nav>
+
+  <!-- HERO -->
+  <section class="case-study-hero">
+    <div class="case-hero-left reveal">
+      <div class="case-tag">Included Health · Member App · 2026–2027</div>
+      <h1>Information Architecture Re-design</h1>
+      <p class="case-subtitle">How I uncovered the tangled relationships between disjointed conversations and cases inside our member app — and streamlined navigation by rebuilding the IA of its two most-visited pages.</p>
+    </div>
+    <div class="case-hero-right">
+      <img src="../images/ia-hero.png" alt="Object map and before/after navigation for the member app" />
+    </div>
+  </section>
+
+  <!-- OVERVIEW -->
+  <section id="overview">
+    <div class="section-label">Overview</div>
+    <h2>Project Snapshot</h2>
+    <div class="divider"></div>
+    <div class="overview-grid reveal">
+      <div class="overview-item">
+        <h3>My Role</h3>
+        <p>IA lead end to end — facilitating object mapping across care operations, clinical, and engineering, then owning task flows, prototypes, and the final design of both surfaces.</p>
+      </div>
+      <div class="overview-item">
+        <h3>Timeline</h3>
+        <p>2026–2027, in three passes: object modeling, task-flow validation, then design and phased rollout to the home page and messaging landing page.</p>
+      </div>
+      <div class="overview-item">
+        <h3>Tools</h3>
+        <p>FigJam for object mapping and flows, Figma for design, AI prototyping for clickable IA models, and unmoderated testing to compare navigation models.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROBLEM -->
+  <section id="problem">
+    <div class="section-label">Context &amp; Problem</div>
+    <h2>A structure that mirrored our systems, not the member's story</h2>
+    <div class="divider"></div>
+    <div class="problem-content reveal">
+      <p>A member could have an open case with a care coordinator, a message thread with a nurse, and a past visit summary — all about the same knee. In the app, those arrived as three unrelated entries, each with its own entry point and its own vocabulary.</p>
+      <div class="pull-quote">"Navigation problems are almost never navigation problems. Fix the model of what things are, and the menu writes itself."</div>
+      <p>The cost showed up as repetition. Members re-explained context the system already had, and care teams answered the same question in two places. The two screens carrying the most traffic — home and messaging — were the ones asking members to do the reconciling.</p>
+      <p>Three structural problems sat underneath it: conversations and cases were modeled separately with no shared parent, the same object was named differently on every surface it appeared, and home had drifted into a list of features rather than a view of what's in progress.</p>
+    </div>
+  </section>
+
+  <!-- SOLUTION -->
+  <section id="solution">
+    <div class="section-label">The Solution</div>
+    <h2>One object model, two rebuilt surfaces</h2>
+    <div class="divider"></div>
+    <div class="solution-grid reveal">
+      <div class="solution-text">
+        <p>The breakthrough was recognizing that a conversation and a case are both evidence of the same underlying thing — an episode of care — and that members already think in episodes. Once that object existed, navigation followed from it.</p>
+        <p>Key deliverables included:</p>
+        <ul class="solution-list">
+          <li>An object map defining every member-facing object, what it contains, and how it nests — signed off by care operations, clinical, and engineering</li>
+          <li>Task flows for the handful of things members actually come to do, traced against the new model to prove it held</li>
+          <li>A re-architected home page that leads with open episodes of care and the one action each is waiting on</li>
+          <li>A messaging landing page where threads and cases collapse into one list organized by episode</li>
+          <li>A naming convention now used in specs by teams that weren't in the room</li>
+        </ul>
+      </div>
+      <div>
+        <div class="carousel-wrapper">
+          <div class="carousel-track" id="carouselTrack">
+            <div class="carousel-slide fit-contain"><img src="../images/ia-object-map.png" alt="Object map showing nested member objects" /></div>
+            <div class="carousel-slide fit-contain"><img src="../images/ia-task-flows.png" alt="Task flows traced against the new object model" /></div>
+            <div class="carousel-slide"><img src="../images/ia-home.png" alt="Re-architected member home page" /></div>
+            <div class="carousel-slide"><img src="../images/ia-messaging.png" alt="Messaging landing page grouped by episode" /></div>
+          </div>
+          <button class="carousel-btn carousel-btn-prev" onclick="moveCarousel(-1)">‹</button>
+          <button class="carousel-btn carousel-btn-next" onclick="moveCarousel(1)">›</button>
+        </div>
+        <div class="carousel-dots" id="carouselDots">
+          <button class="carousel-dot active" onclick="goToSlide(0)"></button>
+          <button class="carousel-dot" onclick="goToSlide(1)"></button>
+          <button class="carousel-dot" onclick="goToSlide(2)"></button>
+          <button class="carousel-dot" onclick="goToSlide(3)"></button>
+        </div>
+        <div class="carousel-caption" id="carouselCaption">Object map — nested member objects</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESS -->
+  <section id="process">
+    <div class="section-label">How I Got There</div>
+    <h2>Objects first, then flows, then screens</h2>
+    <div class="divider"></div>
+    <div class="process-timeline reveal">
+      <div class="timeline-item">
+        <div class="timeline-step">01</div>
+        <h3>Object Mapping</h3>
+        <p>Facilitated cross-functional sessions to name every object a member has, what it contains, and how it nests — surfacing that conversations and cases were two views of one episode of care.</p>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-step">02</div>
+        <h3>Task Flows</h3>
+        <p>Traced real member intents against the new model. Where a flow needed a step the architecture couldn't explain, the architecture was wrong — not the flow.</p>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-step">03</div>
+        <h3>AI Prototyping</h3>
+        <p>Built clickable prototypes with realistic content so the team could argue with the IA instead of debating it abstractly — and took two competing navigation models into testing rather than one.</p>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-step">04</div>
+        <h3>Design &amp; Rollout</h3>
+        <p>Shipped the home page and messaging landing page first — the highest-traffic surfaces — so the new model had to survive real volume before the rest of the app adopted it.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- LEADERSHIP -->
+  <section id="leadership" style="background: var(--white);">
+    <div class="section-label">Design Leadership</div>
+    <h2>Making the model outlive the redesign</h2>
+    <div class="divider"></div>
+    <div class="problem-content reveal">
+      <p>An IA only holds if the organization keeps speaking its language. Alongside the redesign I worked to make the object model a shared asset rather than a design artifact:</p>
+      <ul class="solution-list" style="margin-top: 0;">
+        <li>Ran the mapping sessions with care operations, clinical, and engineering in the same room</li>
+        <li>Published the object definitions and naming convention where PMs write specs</li>
+        <li>Coached designers on other surfaces to test their screens against the model before drawing them</li>
+      </ul>
+      <p style="margin-top: 24px; color: var(--mid); font-size: 15.5px; line-height: 1.85; font-weight: 300;">Teams that weren't part of the redesign now use its vocabulary by default — which is what keeps the architecture coherent as the product grows.</p>
+    </div>
+  </section>
+
+  <!-- RESULTS -->
+  <section id="results">
+    <div class="section-label">Impact</div>
+    <h2>What the re-architecture changed</h2>
+    <div class="divider"></div>
+    <div class="results-grid reveal">
+      <div class="result-card">
+        <div class="result-stat">2</div>
+        <div class="result-label">Highest-Traffic Surfaces Rebuilt</div>
+        <p class="result-desc">Home and messaging — the two pages members visit most — now share one structure and one vocabulary.</p>
+      </div>
+      <div class="result-card">
+        <div class="result-stat">1</div>
+        <div class="result-label">Shared Object Model</div>
+        <p class="result-desc">Conversations, cases, and visits resolved into a single episode-of-care object used across design, product, and engineering.</p>
+      </div>
+      <div class="result-card">
+        <div class="result-stat">3</div>
+        <div class="result-label">Disciplines Aligned</div>
+        <p class="result-desc">Care operations, clinical, and engineering agreed on one definition of what a member has — before any screens were drawn.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="case-study-cta reveal">
+    <div>
+      <div class="section-label">More Work</div>
+      <h2>See what this architecture made <em>possible.</em></h2>
+    </div>
+    <div>
+      <p>The Dot Platform case study shows the full arc — from vision alignment to brand identity to a shipped multi-agent healthcare assistant.</p>
+      <a href="DotPlatform.html" class="btn btn-primary">See the Dot Platform →</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <span>© 2026 Jenn Kong · Designed with care</span>
+  </footer>
+
+  <script>
+    const captions = [
+      'Object map — nested member objects',
+      'Task flows traced against the model',
+      'Re-architected home page',
+      'Messaging landing, grouped by episode'
+    ];
+    let current = 0;
+    const total = 4;
+
+    function updateCarousel() {
+      document.getElementById('carouselTrack').style.transform = `translateX(-${current * 100}%)`;
+      document.getElementById('carouselCaption').textContent = captions[current];
+      document.querySelectorAll('.carousel-dot').forEach((dot, i) => dot.classList.toggle('active', i === current));
+    }
+
+    let isPaused = false;
+    let autoPlay;
+
+    function startAutoPlay() {
+      clearInterval(autoPlay);
+      autoPlay = setInterval(() => { current = (current + 1) % total; updateCarousel(); }, 4000);
+    }
+    function pauseCarousel() { clearInterval(autoPlay); }
+    function resumeCarousel() { if (!isPaused) startAutoPlay(); }
+    function moveCarousel(dir) { current = (current + dir + total) % total; updateCarousel(); isPaused = true; pauseCarousel(); }
+    function goToSlide(i) { current = i; updateCarousel(); }
+
+    startAutoPlay();
+    document.querySelector('.carousel-wrapper').addEventListener('mouseenter', pauseCarousel);
+    document.querySelector('.carousel-wrapper').addEventListener('mouseleave', resumeCarousel);
+
+    // Scroll reveal
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
+    }, { threshold: 0.08 });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>
