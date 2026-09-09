@@ -172,12 +172,18 @@
       padding-left: 28px;
       border-left: 3px solid var(--terra);
     }
-    .skills-list { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 36px; }
+    .skills-title {
+      font-size: 10px; font-weight: 600; letter-spacing: 0.24em;
+      text-transform: uppercase; color: var(--terra);
+      margin-top: 36px; margin-bottom: 18px;
+    }
+    .skills-list { display: flex; flex-wrap: wrap; gap: 8px; }
     .skill-chip {
       padding: 6px 14px; font-size: 11px; font-weight: 500;
       letter-spacing: 0.08em; text-transform: uppercase;
       background: transparent; color: var(--charcoal);
       border: 1px solid var(--pebble);
+      text-decoration: none;
       transition: all 0.25s;
     }
     .skill-chip:hover { background: var(--charcoal); color: var(--sand); border-color: var(--charcoal); }
@@ -200,6 +206,7 @@
       margin-bottom: 4px;
       text-decoration: none; color: inherit;
       transition: opacity 0.3s;
+      scroll-margin-top: 96px;
     }
     .featured-card:hover { opacity: 0.92; }
     .featured-card-reverse { grid-template-columns: 1fr 55%; }
@@ -268,9 +275,6 @@
       display: flex; align-items: center; justify-content: center;
       font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase;
       color: var(--mid);
-    }
-    .project-thumb-1, .project-thumb-2, .project-thumb-3,
-    .project-thumb-4, .project-thumb-5, .project-thumb-6 {
       background: var(--charcoal);
     }
     .project-info { padding: 24px 24px 28px; }
@@ -361,10 +365,6 @@
     }
 
     /* ── ANIMATIONS ── */
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(32px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
     .reveal {
       opacity: 0; transform: translateY(24px);
       transition: opacity 0.9s cubic-bezier(0.16,1,0.3,1), transform 0.9s cubic-bezier(0.16,1,0.3,1);
@@ -433,22 +433,25 @@
   <section id="about">
     <div class="about-sidebar reveal">
       <div class="section-label">About Me</div>
-      <h2>Turning ambiguity into <em>strategy</em> & products that matter.</h2>
+      <h2>Turning ambiguity into <em>strategy</em> &amp; products that matter.</h2>
     </div>
     <div class="about-main reveal">
       <div class="about-text">
-        <p>Over a decade leading design at the edge of emerging technology, I've learned to operate at every altitude — aligning executives on vision one moment, coaching a designer through research synthesis the next.</p>
+        <p>Over a decade leading design at the edge of emerging technology, I've learned to operate at every altitude. From aligning executives on vision one moment, coaching a designer through research synthesis the next, to ensuring high product quality across development teams, I know what a product needs and how to jump in to help.</p>
         <div class="pull-quote">"As a design lead in the AI space, I stay curious and connected. I'm still learning, just like everyone else — but with a healthy level of fearlessness and caution."</div>
-        <p>At Included Health, I set AI design strategy, led a multi-agent healthcare assistant from concept to launch, and built the design principles that now guide how our company builds with AI. I'm drawn to work where design has to keep pace with what's newly possible.</p>
+        <p>At Included Health, I led the design of a multi-agent healthcare assistant from concept to launch, and built the principles that now guide how our company builds with AI. I'm drawn to complex, ambiguous problems where design has to keep pace with what's newly possible.</p>
       </div>
+      <div class="skills-title">My Super Powers include:</div>
       <div class="skills-list">
-        <span class="skill-chip">Object-oriented UX</span>
-        <span class="skill-chip">Discovery Research</span>
-        <span class="skill-chip">AI-based Prototyping</span>
-        <span class="skill-chip">Design Systems</span>
-        <span class="skill-chip">User Research and Testing</span>
-        <span class="skill-chip">Interaction Design</span>
-        <span class="skill-chip">Workshop Facilitation</span>
+        <a href="#ia-redesign" class="skill-chip">Object-oriented UX</a>
+        <a href="#dot-platform" class="skill-chip">Innovation strategy</a>
+        <a href="#ai-design-culture" class="skill-chip">Workshop facilitation</a>
+        <a href="#dot-platform" class="skill-chip">Multi-agent orchestration</a>
+        <a href="#dot-platform" class="skill-chip">Brand identity</a>
+        <a href="#ai-design-culture" class="skill-chip">Mentorship</a>
+        <a href="#ai-design-culture" class="skill-chip">Design systems</a>
+        <a href="#ai-design-culture" class="skill-chip">Design frameworks</a>
+        <a href="#ia-redesign" class="skill-chip">AI-prototyping</a>
       </div>
     </div>
   </section>
@@ -465,7 +468,7 @@
       </div>
     </div>
 
-    <a href="case-studies/DotPlatform.html" class="featured-card reveal">
+    <a href="case-studies/DotPlatform.html" id="dot-platform" class="featured-card reveal">
       <div class="featured-card-img">
         <img src="images/multi-agent-flow.png" alt="The Dot Platform" class="project-img" />
       </div>
@@ -476,15 +479,14 @@
         <p class="featured-card-subtitle">Vision → Brand → Launch</p>
         <p class="project-desc">Synthesized 320+ ideas into 7 concepts, aligned leadership on a bold vision, then built the brand and shipped a production multi-agent AI assistant.</p>
         <div class="featured-card-tags">
-          <span class="featured-tag">Innovation Strategy</span>
-          <span class="featured-tag">Multi-Agent AI</span>
-          <span class="featured-tag">Brand Identity</span>
-          <span class="featured-tag">Cross-functional Leadership</span>
+          <span class="featured-tag">Innovation strategy</span>
+          <span class="featured-tag">Brand identity</span>
+          <span class="featured-tag">Multi-agent orchestration</span>
         </div>
       </div>
     </a>
 
-    <a href="case-studies/AIDesignCulture.html" class="featured-card featured-card-reverse reveal">
+    <a href="case-studies/AIDesignCulture.html" id="ai-design-culture" class="featured-card featured-card-reverse reveal">
       <div class="featured-card-img">
         <img src="images/AI-Design-Patterns-workshop.png" alt="Building AI Design Culture" class="project-img" />
       </div>
@@ -495,10 +497,27 @@
         <p class="featured-card-subtitle">Frameworks → Patterns → Org-wide Impact</p>
         <p class="project-desc">How I built the frameworks and learning culture that helped our teams design AI with confidence — and raised the ceiling for everyone around them.</p>
         <div class="featured-card-tags">
-          <span class="featured-tag">AI Design Patterns</span>
-          <span class="featured-tag">Design Frameworks</span>
-          <span class="featured-tag">Hackathons</span>
+          <span class="featured-tag">Workshop facilitation</span>
+          <span class="featured-tag">Design systems</span>
           <span class="featured-tag">Mentorship</span>
+          <span class="featured-tag">Design frameworks</span>
+        </div>
+      </div>
+    </a>
+
+    <a href="case-studies/InformationArchitecture.html" id="ia-redesign" class="featured-card reveal">
+      <div class="featured-card-img">
+        <img src="images/ia-redesign.png" alt="Information Architecture Re-design" class="project-img" />
+      </div>
+      <div class="featured-card-info">
+        <div class="featured-card-num">03</div>
+        <div class="project-category">Included Health · 2026–Present</div>
+        <div class="featured-card-title">Information Architecture Re-design</div>
+        <p class="featured-card-subtitle">Object-oriented UX → Task flows → Design</p>
+        <p class="project-desc">Uncovered the tangled relationships between disjointed conversations and cases inside the app, then streamlined navigation by rebuilding the IA for our two most-visited member pages — the home page and the messaging landing page.</p>
+        <div class="featured-card-tags">
+          <span class="featured-tag">Object-oriented UX</span>
+          <span class="featured-tag">AI-prototyping</span>
         </div>
       </div>
     </a>
@@ -519,8 +538,8 @@
     <div class="projects-grid">
 
       <a href="https://medium.com/@jennifer.kong/5-ux-design-tips-for-tackling-the-ai-unknowns-27feb97d7f80" target="_blank" class="project-card reveal">
-        <div class="project-thumb project-thumb-4" style="padding:0; position:relative;">
-          <img src="images/writing-ai-tips.webp" alt="5 UX Design Tips for Tackling the AI Unknowns" class="project-img" onerror="this.style.display='none'; this.parentElement.style.display='flex'; this.parentElement.innerHTML='<span style=\'font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--mid)\'>Medium · Article</span>';" />
+        <div class="project-thumb">
+          <img src="images/writing-ai-tips.webp" alt="5 UX Design Tips for Tackling the AI Unknowns" class="project-img" />
         </div>
         <div class="project-info">
           <div class="project-category">AI Design · UX Strategy</div>
@@ -530,8 +549,8 @@
       </a>
 
       <a href="https://rosenverse.rosenfeldmedia.com/videos/case-study-journeying-toward-ai-assisted-documentation-in-healthcare" target="_blank" class="project-card reveal">
-        <div class="project-thumb project-thumb-3" style="padding:0; position:relative;">
-          <img src="images/writing-rosenfeld-talk.png" alt="Journeying Toward AI-Assisted Documentation in Healthcare" class="project-img" onerror="this.style.display='none'; this.parentElement.style.display='flex'; this.parentElement.innerHTML='<span style=\'font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--mid)\'>Rosenfeld · Talk</span>';" />
+        <div class="project-thumb">
+          <img src="images/writing-rosenfeld-talk.png" alt="Journeying Toward AI-Assisted Documentation in Healthcare" class="project-img" />
         </div>
         <div class="project-info">
           <div class="project-category">Conference Talk · Designing with AI 2024</div>
@@ -541,8 +560,8 @@
       </a>
 
       <a href="https://medium.com/@jennifer.kong/designing-with-intention-16508daa57da" target="_blank" class="project-card reveal">
-        <div class="project-thumb project-thumb-5" style="padding:0; position:relative;">
-          <img src="images/writing-designing-intention.webp" alt="Designing with Intention" class="project-img" onerror="this.style.display='none'; this.parentElement.style.display='flex'; this.parentElement.innerHTML='<span style=\'font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--mid)\'>Medium · Article</span>';" />
+        <div class="project-thumb">
+          <img src="images/writing-designing-intention.webp" alt="Designing with Intention" class="project-img" />
         </div>
         <div class="project-info">
           <div class="project-category">Design Philosophy</div>
@@ -552,8 +571,8 @@
       </a>
 
       <a href="https://medium.com/included-health-design/how-volleyball-can-help-you-to-survive-and-thrive-on-a-design-team-a57044cc815b" target="_blank" class="project-card reveal">
-        <div class="project-thumb project-thumb-1" style="padding:0; position:relative;">
-          <img src="images/writing-volleyball.webp" alt="Volleyball for Design Teams" class="project-img" onerror="this.style.display='none'; this.parentElement.style.display='flex'; this.parentElement.innerHTML='<span style=\'font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--mid)\'>Medium · Article</span>';" />
+        <div class="project-thumb">
+          <img src="images/writing-volleyball.webp" alt="Volleyball for Design Teams" class="project-img" />
         </div>
         <div class="project-info">
           <div class="project-category">Design Culture · Team Leadership</div>
@@ -691,7 +710,9 @@
       });
     }, { threshold: 0.08 });
     reveals.forEach(el => observer.observe(el));
-  </script>  <!-- Elfsight AI Chatbot | Jenn Kong - AI rep -->
+  </script>
+
+  <!-- Elfsight AI Chatbot | Jenn Kong - AI rep -->
   <script src="https://elfsightcdn.com/platform.js" async></script>
   <div class="elfsight-app-141355e9-4163-460e-a65b-459ceb472e81" data-elfsight-app-lazy></div>
 
