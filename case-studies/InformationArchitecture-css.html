@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Information Architecture Re-design — Jenn Kong</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../case-study.css" />
+</head>
+<body class="cs-body">
+<div class="cs-page">
+
+  <nav class="cs-nav">
+    <a href="../index.html" class="cs-nav__logo">Jenn Kong</a>
+    <a href="../index.html#projects" class="cs-nav__back">&larr; Back to Work</a>
+  </nav>
+
+  <section class="cs-hero">
+    <div class="cs-hero__text cs-reveal">
+      <div class="cs-hero__tag">Included Health &middot; Member App &middot; 2026&ndash;2027</div>
+      <h1 class="cs-hero__title">Information Architecture <em>Re-design</em></h1>
+      <p class="cs-hero__lede"><b>Members couldn't track their own support requests.</b><br />The fix wasn't at the feature level — it was at the object level. Here's how I untangled the relationships between conversations and cases to simplify navigation and speed up resolution.</p>
+    </div>
+    <div class="cs-hero__media">
+      <img src="../images/messaging_revamp.png" alt="Messaging landing page, before and after the IA re-design" />
+    </div>
+  </section>
+
+  <section class="cs-section cs-section--sand">
+    <div class="cs-wrap">
+      <div class="cs-label"><span>Overview</span></div>
+      <h2 class="cs-h2">Project Snapshot</h2>
+      <div class="cs-rule"></div>
+      <div class="cs-grid-3 cs-reveal">
+        <div>
+          <h3 class="cs-h3">My Role</h3>
+          <p>Design lead from end to end — facilitating research and object mapping across care operations, clinical, and engineering, then owning task flows, prototypes, and the final design of our top level app pages.</p>
+        </div>
+        <div>
+          <h3 class="cs-h3">Timeline</h3>
+          <ol class="cs-steps">
+            <li><span class="cs-steps__n">01</span><span>Discovery research &amp; alignment on the problem</span></li>
+            <li><span class="cs-steps__n">02</span><span>Object modeling &amp; task flow validation</span></li>
+            <li><span class="cs-steps__n">03</span><span>AI prototyping and user testing</span></li>
+            <li><span class="cs-steps__n">04</span><span>Design handoff</span></li>
+          </ol>
+        </div>
+        <div>
+          <h3 class="cs-h3">Tools</h3>
+          <p>FigJam for object mapping and flows, Figma for design, AI prototyping for clickable IA models, unmoderated testing for navigation comparisons.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cs-section cs-section--white">
+    <div class="cs-wrap">
+      <div class="cs-label"><span>Context &amp; Problem</span></div>
+      <h2 class="cs-h2">Fixing navigation means going deeper — to the object layer</h2>
+      <div class="cs-rule cs-rule--tight"></div>
+      <div class="cs-prose cs-reveal">
+        <p>Members struggled to self-serve, and resolution time climbed because our care teams had to connect the dots too.</p>
+        <blockquote class="cs-quote">"Object-oriented UX is looking at how users complete tasks through the objects they care about. This is a most efficient way to address navigation problems at a fundamental level."</blockquote>
+        <p>The cost showed up as repetition and resulted in poor member satisfaction. Members had to re-explain context the system already had, and care teams often had to reference information in multiple places.</p>
+        <p>While much of this problem can be traced back to user flows and might be addressed with feature-level improvements, a more efficient and effective way was to examine the problem a layer deeper — at the object level.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="cs-section cs-section--sand">
+    <div class="cs-wrap">
+      <div class="cs-label"><span>The Solution</span></div>
+      <h2 class="cs-h2">One object model, multiple surfaces</h2>
+      <div class="cs-rule"></div>
+      <div class="cs-reveal">
+        <div class="cs-prose">
+          <p>The breakthrough was recognizing that a conversation and a case are both connected to&nbsp;an underlying thing — a user need — and that members only care about when and how their needs would be met. Once that object was established, our navigation followed.</p>
+          <p>Key deliverables included:</p>
+          <ul class="cs-list">
+            <li><span>An object map defining every member-facing object, what it contains, and how it nests — signed off by care operations, clinical, and engineering</span></li>
+            <li><span>Task flows for the handful of things members actually come to do, traced against the new model to prove it held</span></li>
+            <li><span>A re-architected home page that leads with open episodes of care and the one action each is waiting on</span></li>
+            <li><span>A messaging landing page where threads and cases collapse into one list organized by episode</span></li>
+            <li><span>A naming convention now used in specs by teams that weren't in the room</span></li>
+          </ul>
+        </div>
+
+        <div class="cs-carousel">
+          <div class="cs-carousel__frame" id="csFrame">
+            <div class="cs-carousel__track" id="csTrack">
+              <div class="cs-carousel__slide"><img src="../images/Object_map.png" alt="Thread : Case : Need object model" /></div>
+              <div class="cs-carousel__slide"><img src="../images/object_navigation.png" alt="Object navigation relationships across thread, need, and case lists" /></div>
+              <div class="cs-carousel__slide"><img src="../images/Billing_taskflow.png" alt="Billing issue task flow" /></div>
+              <div class="cs-carousel__slide"><img src="../images/messaging_new_UI.png" alt="Redesigned home and messaging screens" /></div>
+            </div>
+            <button class="cs-carousel__btn cs-carousel__btn--prev" onclick="csMove(-1, event)">&lsaquo;</button>
+            <button class="cs-carousel__btn cs-carousel__btn--next" onclick="csMove(1, event)">&rsaquo;</button>
+          </div>
+          <div class="cs-carousel__dots">
+            <button class="cs-carousel__dot is-active" onclick="csGoTo(0)"></button>
+            <button class="cs-carousel__dot" onclick="csGoTo(1)"></button>
+            <button class="cs-carousel__dot" onclick="csGoTo(2)"></button>
+            <button class="cs-carousel__dot" onclick="csGoTo(3)"></button>
+          </div>
+          <div class="cs-carousel__caption"><span id="csCaption">Thread : Case : Need — the object model</span> &middot; Click to enlarge</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cs-section cs-section--white">
+    <div class="cs-wrap">
+      <div class="cs-label"><span>How I Got There</span></div>
+      <h2 class="cs-h2">Objects first, then flows, then screens</h2>
+      <div class="cs-rule"></div>
+      <div class="cs-grid-4 cs-reveal">
+        <div class="cs-phase">
+          <div class="cs-phase__n">01</div>
+          <h3>Object Mapping</h3>
+          <p>Facilitated cross-functional sessions to name every object a member has, what it contains, and how it nests — surfacing that conversations and cases were two views of one episode of care.</p>
+        </div>
+        <div class="cs-phase">
+          <div class="cs-phase__n">02</div>
+          <h3>Task Flows</h3>
+          <p>Traced real member intents against the new model. Where a flow needed a step the architecture couldn't explain, the architecture was wrong — not the flow.</p>
+        </div>
+        <div class="cs-phase">
+          <div class="cs-phase__n">03</div>
+          <h3>AI Prototyping</h3>
+          <p>Built clickable prototypes with realistic content so the team could argue with the IA instead of debating it abstractly — and took two competing navigation models into testing rather than one.</p>
+        </div>
+        <div class="cs-phase">
+          <div class="cs-phase__n">04</div>
+          <h3>Design &amp; Rollout</h3>
+          <p>Shipped the home page and messaging landing page first — the highest-traffic surfaces — so the new model had to survive real volume before the rest of the app adopted it.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cs-section cs-section--charcoal">
+    <div class="cs-wrap">
+      <div class="cs-label"><span>Design Leadership</span></div>
+      <h2 class="cs-h2">Making the model outlive the redesign</h2>
+      <div class="cs-rule cs-rule--tight"></div>
+      <div class="cs-prose cs-reveal">
+        <p>An IA only holds if the organization keeps speaking its language. Alongside the redesign I worked to make the object model a shared asset rather than a design artifact:</p>
+        <ul class="cs-list" style="margin: 24px 0;">
+          <li><span>Ran the mapping sessions with care operations, clinical, and engineering in the same room</span></li>
+          <li><span>Published the object definitions and naming convention where PMs write specs</span></li>
+          <li><span>Coached designers on other surfaces to test their screens against the model before drawing them</span></li>
+        </ul>
+        <p>Teams that weren't part of the redesign now use its vocabulary by default — which is what keeps the architecture coherent as the product grows.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="cs-section cs-section--sand">
+    <div class="cs-wrap">
+      <div class="cs-label"><span>Impact</span></div>
+      <h2 class="cs-h2">What the re-architecture changed</h2>
+      <div class="cs-rule"></div>
+      <div class="cs-results cs-reveal">
+        <div class="cs-result">
+          <div class="cs-result__stat">2</div>
+          <div class="cs-result__label">Highest-Traffic Surfaces Rebuilt</div>
+          <p>Home and messaging — the two pages members visit most — now share one structure and one vocabulary.</p>
+        </div>
+        <div class="cs-result">
+          <div class="cs-result__stat">1</div>
+          <div class="cs-result__label">Shared Object Model</div>
+          <p>Conversations, cases, and visits resolved into a single need-based object used across design, product, and engineering.</p>
+        </div>
+        <div class="cs-result">
+          <div class="cs-result__stat">3</div>
+          <div class="cs-result__label">Disciplines Aligned</div>
+          <p>Care operations, clinical, and engineering agreed on one definition of what a member has — before any screens were drawn.</p>
+        </div>
+      </div>
+      <p class="cs-note">Send me the adoption and task-success numbers and I'll swap these for real metrics.</p>
+    </div>
+  </section>
+
+  <section class="cs-section cs-section--stone">
+    <div class="cs-wrap cs-cta cs-reveal">
+      <div>
+        <div class="cs-label"><span>More Work</span></div>
+        <h2 class="cs-cta__title">See what this architecture&nbsp;<em>supports</em></h2>
+      </div>
+      <div class="cs-cta__right">
+        <p>The Dot Platform case study shows the full arc — from vision alignment to brand identity to a shipped multi-agent healthcare assistant.</p>
+        <a href="DotPlatform.html" class="cs-btn">See the Dot Platform &rarr;</a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="cs-footer">&copy; 2026 Jenn Kong &middot; Designed with care</footer>
+
+</div>
+
+<script>
+  var csSrcs = [
+    '../images/Object_map.png',
+    '../images/object_navigation.png',
+    '../images/Billing_taskflow.png',
+    '../images/messaging_new_UI.png'
+  ];
+  var csCaptions = [
+    'Thread : Case : Need — the object model',
+    'Object navigation relationships',
+    'Billing issue — task flow',
+    'Redesigned home and messaging'
+  ];
+  var csCurrent = 0;
+  var csTotal = csSrcs.length;
+  var csTimer;
+
+  function csUpdate() {
+    document.getElementById('csTrack').style.transform = 'translateX(-' + (csCurrent * 100) + '%)';
+    document.getElementById('csCaption').textContent = csCaptions[csCurrent];
+    var dots = document.querySelectorAll('.cs-carousel__dot');
+    for (var i = 0; i < dots.length; i++) dots[i].classList.toggle('is-active', i === csCurrent);
+  }
+  function csStart() {
+    clearInterval(csTimer);
+    csTimer = setInterval(function () { csCurrent = (csCurrent + 1) % csTotal; csUpdate(); }, 5000);
+  }
+  function csMove(dir, e) {
+    if (e) e.stopPropagation();
+    clearInterval(csTimer);
+    csCurrent = (csCurrent + dir + csTotal) % csTotal;
+    csUpdate();
+  }
+  function csGoTo(i) { clearInterval(csTimer); csCurrent = i; csUpdate(); }
+
+  document.getElementById('csFrame').addEventListener('click', function (e) {
+    if (e.target.tagName === 'BUTTON') return;
+    clearInterval(csTimer);
+    var box = document.createElement('div');
+    box.className = 'cs-lightbox';
+    var img = document.createElement('img');
+    img.src = csSrcs[csCurrent];
+    img.alt = csCaptions[csCurrent];
+    box.appendChild(img);
+    function close() { box.remove(); document.removeEventListener('keydown', onKey); }
+    function onKey(ev) { if (ev.key === 'Escape') close(); }
+    box.addEventListener('click', close);
+    document.addEventListener('keydown', onKey);
+    document.body.appendChild(box);
+  });
+
+  csStart();
+
+  var csObserver = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (e.isIntersecting) { e.target.classList.add('is-visible'); csObserver.unobserve(e.target); }
+    });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.cs-reveal').forEach(function (el) { csObserver.observe(el); });
+</script>
+</body>
+</html>

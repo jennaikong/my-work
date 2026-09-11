@@ -5,6 +5,28 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Information Architecture Re-design — Jenn Kong</title>
   <link rel="stylesheet" href="../styles.css" />
+  <style>
+    .ia-hero-img { display:flex; align-items:center; justify-content:center; padding:32px; background:var(--white,#faf8f4); }
+    .ia-hero-img img { max-width:100%; max-height:100%; object-fit:contain; display:block; }
+    .ia-timeline { list-style:none; margin:0; padding:0; display:grid; gap:14px; }
+    .ia-timeline li { display:grid; grid-template-columns:auto 1fr; gap:14px; align-items:baseline; font-size:14.5px; color:var(--mid,#7a7268); font-weight:300; line-height:1.6; }
+    .ia-timeline .ia-step { font-size:11px; font-weight:600; letter-spacing:0.1em; color:var(--terra,#b85c38); }
+    .ia-solution-text { max-width:760px; }
+    .ia-carousel-frame { position:relative; overflow:hidden; background:var(--white,#faf8f4); border:1px solid var(--border,#d8d0c4); height:clamp(420px,72vh,880px); cursor:zoom-in; }
+    .ia-carousel-track { display:flex; height:100%; transition:transform .5s cubic-bezier(.16,1,.3,1); }
+    .ia-carousel-slide { flex:0 0 100%; display:flex; align-items:center; justify-content:center; padding:20px; }
+    .ia-carousel-slide img { max-width:100%; max-height:100%; object-fit:contain; display:block; }
+    .ia-carousel-btn { position:absolute; top:50%; transform:translateY(-50%); width:44px; height:72px; border:none; background:rgba(26,23,20,0.72); color:var(--white,#faf8f4); font-size:22px; cursor:pointer; transition:background .2s; }
+    .ia-carousel-btn:hover { background:var(--terra,#b85c38); }
+    .ia-carousel-prev { left:0; }
+    .ia-carousel-next { right:0; }
+    .ia-carousel-dots { display:flex; gap:8px; align-items:center; justify-content:center; margin-top:16px; }
+    .ia-dot { width:8px; height:8px; padding:0; border:1px solid var(--terra,#b85c38); background:transparent; cursor:pointer; }
+    .ia-dot.active { background:var(--terra,#b85c38); }
+    .ia-carousel-caption { text-align:center; font-size:11px; letter-spacing:0.14em; text-transform:uppercase; color:var(--mid,#7a7268); margin-top:14px; }
+    .ia-lightbox { position:fixed; inset:0; z-index:9999; background:rgba(26,23,20,0.92); display:flex; align-items:center; justify-content:center; padding:40px; cursor:zoom-out; overflow:auto; }
+    .ia-lightbox img { max-width:100%; max-height:100%; object-fit:contain; background:var(--white,#faf8f4); }
+  </style>
 </head>
 <body>
 
@@ -19,10 +41,10 @@
     <div class="case-hero-left reveal">
       <div class="case-tag">Included Health · Member App · 2026–2027</div>
       <h1>Information Architecture Re-design</h1>
-      <p class="case-subtitle">How I uncovered the tangled relationships between disjointed conversations and cases inside our member app — and streamlined navigation by rebuilding the IA of its two most-visited pages.</p>
+      <p class="case-subtitle"><b>Members couldn't track their own support requests.</b><br />The fix wasn't at the feature level — it was at the object level. Here's how I untangled the relationships between conversations and cases to simplify navigation and speed up resolution.</p>
     </div>
-    <div class="case-hero-right">
-      <img src="../images/ia-hero.png" alt="Object map and before/after navigation for the member app" />
+    <div class="case-hero-right ia-hero-img">
+      <img src="../images/messaging_revamp.png" alt="Messaging landing page, before and after the IA re-design" />
     </div>
   </section>
 
@@ -34,15 +56,20 @@
     <div class="overview-grid reveal">
       <div class="overview-item">
         <h3>My Role</h3>
-        <p>IA lead end to end — facilitating object mapping across care operations, clinical, and engineering, then owning task flows, prototypes, and the final design of both surfaces.</p>
+        <p>Design lead from end to end — facilitating research and object mapping across care operations, clinical, and engineering, then owning task flows, prototypes, and the final design of our top level app pages.</p>
       </div>
       <div class="overview-item">
         <h3>Timeline</h3>
-        <p>2026–2027, in three passes: object modeling, task-flow validation, then design and phased rollout to the home page and messaging landing page.</p>
+        <ol class="ia-timeline">
+          <li><span class="ia-step">01</span><span>Discovery research &amp; alignment on the problem</span></li>
+          <li><span class="ia-step">02</span><span>Object modeling &amp; task flow validation</span></li>
+          <li><span class="ia-step">03</span><span>AI prototyping and user testing</span></li>
+          <li><span class="ia-step">04</span><span>Design handoff</span></li>
+        </ol>
       </div>
       <div class="overview-item">
         <h3>Tools</h3>
-        <p>FigJam for object mapping and flows, Figma for design, AI prototyping for clickable IA models, and unmoderated testing to compare navigation models.</p>
+        <p>FigJam for object mapping and flows, Figma for design, AI prototyping for clickable IA models, unmoderated testing for navigation comparisons.</p>
       </div>
     </div>
   </section>
@@ -50,24 +77,24 @@
   <!-- PROBLEM -->
   <section id="problem">
     <div class="section-label">Context &amp; Problem</div>
-    <h2>A structure that mirrored our systems, not the member's story</h2>
+    <h2>Fixing navigation means going deeper — to the object layer</h2>
     <div class="divider"></div>
     <div class="problem-content reveal">
-      <p>A member could have an open case with a care coordinator, a message thread with a nurse, and a past visit summary — all about the same knee. In the app, those arrived as three unrelated entries, each with its own entry point and its own vocabulary.</p>
-      <div class="pull-quote">"Navigation problems are almost never navigation problems. Fix the model of what things are, and the menu writes itself."</div>
-      <p>The cost showed up as repetition. Members re-explained context the system already had, and care teams answered the same question in two places. The two screens carrying the most traffic — home and messaging — were the ones asking members to do the reconciling.</p>
-      <p>Three structural problems sat underneath it: conversations and cases were modeled separately with no shared parent, the same object was named differently on every surface it appeared, and home had drifted into a list of features rather than a view of what's in progress.</p>
+      <p>Members struggled to self-serve, and resolution time climbed because our care teams had to connect the dots too.</p>
+      <div class="pull-quote">"Object-oriented UX is looking at how users complete tasks through the objects they care about. This is a most efficient way to address navigation problems at a fundamental level."</div>
+      <p>The cost showed up as repetition and resulted in poor member satisfaction. Members had to re-explain context the system already had, and care teams often had to reference information in multiple places.</p>
+      <p>While much of this problem can be traced back to user flows and might be addressed with feature-level improvements, a more efficient and effective way was to examine the problem a layer deeper — at the object level.</p>
     </div>
   </section>
 
   <!-- SOLUTION -->
   <section id="solution">
     <div class="section-label">The Solution</div>
-    <h2>One object model, two rebuilt surfaces</h2>
+    <h2>One object model, multiple surfaces</h2>
     <div class="divider"></div>
-    <div class="solution-grid reveal">
-      <div class="solution-text">
-        <p>The breakthrough was recognizing that a conversation and a case are both evidence of the same underlying thing — an episode of care — and that members already think in episodes. Once that object existed, navigation followed from it.</p>
+    <div class="reveal">
+      <div class="ia-solution-text">
+        <p>The breakthrough was recognizing that a conversation and a case are both connected to&nbsp;an underlying thing — a user need — and that members only care about when and how their needs would be met. Once that object was established, our navigation followed.</p>
         <p>Key deliverables included:</p>
         <ul class="solution-list">
           <li>An object map defining every member-facing object, what it contains, and how it nests — signed off by care operations, clinical, and engineering</li>
@@ -77,24 +104,25 @@
           <li>A naming convention now used in specs by teams that weren't in the room</li>
         </ul>
       </div>
-      <div>
-        <div class="carousel-wrapper">
-          <div class="carousel-track" id="carouselTrack">
-            <div class="carousel-slide fit-contain"><img src="../images/ia-object-map.png" alt="Object map showing nested member objects" /></div>
-            <div class="carousel-slide fit-contain"><img src="../images/ia-task-flows.png" alt="Task flows traced against the new object model" /></div>
-            <div class="carousel-slide"><img src="../images/ia-home.png" alt="Re-architected member home page" /></div>
-            <div class="carousel-slide"><img src="../images/ia-messaging.png" alt="Messaging landing page grouped by episode" /></div>
+
+      <div style="margin-top: 56px;">
+        <div class="ia-carousel-frame" id="iaFrame">
+          <div class="ia-carousel-track" id="iaTrack">
+            <div class="ia-carousel-slide"><img src="../images/Object_map.png" alt="Thread : Case : Need object model" /></div>
+            <div class="ia-carousel-slide"><img src="../images/object_navigation.png" alt="Object navigation relationships across thread, need, and case lists" /></div>
+            <div class="ia-carousel-slide"><img src="../images/Billing_taskflow.png" alt="Billing issue task flow" /></div>
+            <div class="ia-carousel-slide"><img src="../images/messaging_new_UI.png" alt="Redesigned home and messaging screens" /></div>
           </div>
-          <button class="carousel-btn carousel-btn-prev" onclick="moveCarousel(-1)">‹</button>
-          <button class="carousel-btn carousel-btn-next" onclick="moveCarousel(1)">›</button>
+          <button class="ia-carousel-btn ia-carousel-prev" onclick="iaMove(-1, event)">‹</button>
+          <button class="ia-carousel-btn ia-carousel-next" onclick="iaMove(1, event)">›</button>
         </div>
-        <div class="carousel-dots" id="carouselDots">
-          <button class="carousel-dot active" onclick="goToSlide(0)"></button>
-          <button class="carousel-dot" onclick="goToSlide(1)"></button>
-          <button class="carousel-dot" onclick="goToSlide(2)"></button>
-          <button class="carousel-dot" onclick="goToSlide(3)"></button>
+        <div class="ia-carousel-dots" id="iaDots">
+          <button class="ia-dot active" onclick="iaGoTo(0)"></button>
+          <button class="ia-dot" onclick="iaGoTo(1)"></button>
+          <button class="ia-dot" onclick="iaGoTo(2)"></button>
+          <button class="ia-dot" onclick="iaGoTo(3)"></button>
         </div>
-        <div class="carousel-caption" id="carouselCaption">Object map — nested member objects</div>
+        <div class="ia-carousel-caption" id="iaCaption">Thread : Case : Need — the object model · Click to enlarge</div>
       </div>
     </div>
   </section>
@@ -158,7 +186,7 @@
       <div class="result-card">
         <div class="result-stat">1</div>
         <div class="result-label">Shared Object Model</div>
-        <p class="result-desc">Conversations, cases, and visits resolved into a single episode-of-care object used across design, product, and engineering.</p>
+        <p class="result-desc">Conversations, cases, and visits resolved into a single need-based object used across design, product, and engineering.</p>
       </div>
       <div class="result-card">
         <div class="result-stat">3</div>
@@ -172,7 +200,7 @@
   <section class="case-study-cta reveal">
     <div>
       <div class="section-label">More Work</div>
-      <h2>See what this architecture made <em>possible.</em></h2>
+      <h2>See what this architecture&nbsp;<em>supports</em></h2>
     </div>
     <div>
       <p>The Dot Platform case study shows the full arc — from vision alignment to brand identity to a shipped multi-agent healthcare assistant.</p>
@@ -186,42 +214,54 @@
   </footer>
 
   <script>
-    const captions = [
-      'Object map — nested member objects',
-      'Task flows traced against the model',
-      'Re-architected home page',
-      'Messaging landing, grouped by episode'
+    var iaSrcs = [
+      '../images/Object_map.png',
+      '../images/object_navigation.png',
+      '../images/Billing_taskflow.png',
+      '../images/messaging_new_UI.png'
     ];
-    let current = 0;
-    const total = 4;
+    var iaCaptions = [
+      'Thread : Case : Need — the object model',
+      'Object navigation relationships',
+      'Billing issue — task flow',
+      'Redesigned home and messaging'
+    ];
+    var iaCurrent = 0;
+    var iaTotal = 4;
+    var iaTimer;
 
-    function updateCarousel() {
-      document.getElementById('carouselTrack').style.transform = `translateX(-${current * 100}%)`;
-      document.getElementById('carouselCaption').textContent = captions[current];
-      document.querySelectorAll('.carousel-dot').forEach((dot, i) => dot.classList.toggle('active', i === current));
+    function iaUpdate() {
+      document.getElementById('iaTrack').style.transform = 'translateX(-' + (iaCurrent * 100) + '%)';
+      document.getElementById('iaCaption').textContent = iaCaptions[iaCurrent] + ' · Click to enlarge';
+      var dots = document.querySelectorAll('.ia-dot');
+      for (var i = 0; i < dots.length; i++) dots[i].classList.toggle('active', i === iaCurrent);
     }
+    function iaStart() { clearInterval(iaTimer); iaTimer = setInterval(function () { iaCurrent = (iaCurrent + 1) % iaTotal; iaUpdate(); }, 5000); }
+    function iaMove(dir, e) { if (e) e.stopPropagation(); clearInterval(iaTimer); iaCurrent = (iaCurrent + dir + iaTotal) % iaTotal; iaUpdate(); }
+    function iaGoTo(i) { clearInterval(iaTimer); iaCurrent = i; iaUpdate(); }
 
-    let isPaused = false;
-    let autoPlay;
+    document.getElementById('iaFrame').addEventListener('click', function (e) {
+      if (e.target.tagName === 'BUTTON') return;
+      clearInterval(iaTimer);
+      var box = document.createElement('div');
+      box.className = 'ia-lightbox';
+      var img = document.createElement('img');
+      img.src = iaSrcs[iaCurrent];
+      img.alt = iaCaptions[iaCurrent];
+      box.appendChild(img);
+      function close() { box.remove(); document.removeEventListener('keydown', onKey); }
+      function onKey(ev) { if (ev.key === 'Escape') close(); }
+      box.addEventListener('click', close);
+      document.addEventListener('keydown', onKey);
+      document.body.appendChild(box);
+    });
 
-    function startAutoPlay() {
-      clearInterval(autoPlay);
-      autoPlay = setInterval(() => { current = (current + 1) % total; updateCarousel(); }, 4000);
-    }
-    function pauseCarousel() { clearInterval(autoPlay); }
-    function resumeCarousel() { if (!isPaused) startAutoPlay(); }
-    function moveCarousel(dir) { current = (current + dir + total) % total; updateCarousel(); isPaused = true; pauseCarousel(); }
-    function goToSlide(i) { current = i; updateCarousel(); }
+    iaStart();
 
-    startAutoPlay();
-    document.querySelector('.carousel-wrapper').addEventListener('mouseenter', pauseCarousel);
-    document.querySelector('.carousel-wrapper').addEventListener('mouseleave', resumeCarousel);
-
-    // Scroll reveal
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
+    var observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
     }, { threshold: 0.08 });
-    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    document.querySelectorAll('.reveal').forEach(function (el) { observer.observe(el); });
   </script>
 </body>
 </html>
