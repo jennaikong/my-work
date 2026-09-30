@@ -4,233 +4,212 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>The Dot Platform — Jenn Kong</title>
-  <link rel="stylesheet" href="../styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../case-study.css" />
 </head>
-<body>
+<body class="cs-body">
+<div class="cs-page">
 
-  <!-- NAV -->
-  <nav>
-    <a href="../index.html" class="nav-logo">Jenn Kong</a>
-    <a href="../index.html#projects" class="nav-back">← Back to Work</a>
+  <nav class="cs-nav">
+    <a href="../index.html" class="cs-nav__logo">Jenn Kong</a>
+    <a href="../index.html#projects" class="cs-nav__back">&larr; Back to Work</a>
   </nav>
 
-  <!-- HERO -->
-  <section class="case-study-hero">
-    <div class="case-hero-left reveal">
-      <div class="case-tag">Included Health · AI Platform · 2024–2026</div>
-      <h1>The Dot Platform</h1>
-      <p class="case-subtitle">How I led the end-to-end design of a multi-agent AI healthcare assistant — from vision to brand to a production-ready product that changed how members navigate their care.</p>
+  <section class="cs-hero">
+    <div class="cs-hero__text cs-reveal">
+      <div class="cs-hero__tag">Included Health &middot; AI Platform &middot; 2024&ndash;2026</div>
+      <h1 class="cs-hero__title">Dot <em>Platform</em></h1>
+      <p class="cs-hero__lede" style="font-size: 18px; line-height: 1.7;">How do we build something of value that leverages a new emerging technology?</p>
     </div>
-    <div class="case-hero-right">
-      <img src="../images/multi-agent-flow.png" alt="Dot Platform multi-agent flow" />
+    <div class="cs-hero__media">
+      <img src="../images/DotIntro.gif" alt="Dot Platform — product introduction" />
     </div>
   </section>
 
-  <!-- OVERVIEW -->
-  <section id="overview">
-    <div class="section-label">Overview</div>
-    <h2>Project Snapshot</h2>
-    <div class="divider"></div>
-    <div class="overview-grid reveal">
-      <div class="overview-item">
-        <h3>My Role</h3>
-        <p>Lead Product Designer — managing requirements, orchestrating design across 3 parallel workstreams, interaction design, and user validation throughout a year-long initiative.</p>
-      </div>
-      <div class="overview-item">
-        <h3>Timeline</h3>
-        <p>Year-long initiative across multiple phases: Discovery, Alignment, User Research, and Design & Execution. Launched to first client in January, second client launching in July.</p>
-      </div>
-      <div class="overview-item">
-        <h3>Tools</h3>
-        <p>Figma for wireframes and flows, FigmaMake and Cursor for AI prototyping, Langsmith for model evaluation and prompt design, Rally, Marvig and Maze for user research.</p>
+  <section class="cs-section cs-section--sand">
+    <div class="cs-wrap">
+      <div class="cs-label"><span>The Problem</span></div>
+      <h2 class="cs-h2" style="max-width: 900px;">People in the US do not take advantage of their healthcare benefits</h2>
+      <div class="cs-rule cs-rule--tight"></div>
+      <div class="cs-prose cs-reveal">
+        <p>They miss opportunities to prevent small health issues from becoming large ones. As a result, people may end up developing complex health conditions, leaving them financially devastated.</p>
+        <p>At Included Health, we are positioned to help US employers make healthcare accessible to their employees.</p>
+        <blockquote class="cs-quote" style="margin-bottom: 0;">How might we use AI to scale our ability to raise healthcare literacy and access for millions of US citizens?</blockquote>
       </div>
     </div>
   </section>
 
-  <!-- PROBLEM -->
-  <section id="problem">
-    <div class="section-label">Context & Problem</div>
-    <h2>A smarter strategy for a broken system</h2>
-    <div class="divider"></div>
-    <div class="problem-content reveal">
-      <p>Included Health helps major US employers improve employee health literacy, benefits access, and overall wellbeing — affordably. We position ourselves as a modern, AI-powered, human-driven healthcare company.</p>
-      <p>As we scaled amid rising costs and chronic disease rates, we needed a smarter strategy: proactively connecting patients to the right care before small problems became expensive ones. We needed to go beyond reactive support and build something that could meet members where they were — intelligently, personally, and at scale.</p>
-      <div class="pull-quote">"The answer was Dot: an AI platform designed to be the connective tissue across the user's entire healthcare journey."</div>
-      <div class="case-video" style="margin-top: 40px;">
-        <img src="../images/DotIntro.gif" alt="Dot Platform — product introduction" style="width:100%; display:block; max-height:520px; object-fit:contain;" />
+  <section class="cs-section cs-section--charcoal">
+    <div class="cs-wrap">
+      <div class="cs-label"><span>The Solution</span></div>
+      <h2 class="cs-h2" style="max-width: 900px;">A smart, empathetic and personalized healthcare guide</h2>
+      <div class="cs-rule cs-rule--tight"></div>
+      <div class="cs-prose cs-reveal">
+        <p>One who can help members answer coverage questions, direct healthcare concerns appropriately, and even route people to the right care immediately.</p>
+        <p>This problem and solution is the backbone of our Dot platform program.</p>
       </div>
-      <div class="case-video-label">Dot Platform — product introduction</div>
     </div>
   </section>
 
-  <!-- SOLUTION -->
-  <section id="solution">
-    <div class="section-label">The Solution</div>
-    <h2>A network of agents working together for the member</h2>
-    <div class="divider"></div>
-    <div class="solution-grid reveal">
-      <div class="solution-text">
-        <p>Dot is an AI platform — a network of agents all working together to deliver personalized guidance, helping members navigate and combine their Included Health benefits with their employer-covered benefits.</p>
-        <p>Key deliverables included:</p>
-        <ul class="solution-list">
-          <li>Service flows for non-deterministic agents that understand user intent, offer recommended care options, collect preferences to find suitable doctors, and initiate patient health intakes</li>
-          <li>Front-end UX including entry point, within-chat interactions, and Dot's voice and tone</li>
-          <li>A testing strategy using qualitative research and "LLM as a Judge" evaluations to meet our benchmark for consumer-grade quality</li>
-          <li>A process framework for designing multi-agent systems — adopted by other designers and PMs across the org</li>
-        </ul>
+  <section class="cs-section cs-section--white">
+    <div class="cs-wrap">
+      <div class="cs-label"><span>My Role</span></div>
+      <h2 class="cs-h2">Leading design from end to end</h2>
+      <div class="cs-rule cs-rule--tight"></div>
+      <div class="cs-role cs-reveal">
+        <div class="cs-prose">
+          <p>As a staff designer, I was responsible for the strategy, the principles, the patterns and the process for developing an agentic AI healthcare assistant.</p>
+          <p>I started with discovery workshops and ideation sessions, then took prioritized ideas forward to build our flows and craft designs.</p>
+        </div>
+        <div>
+          <div class="cs-result__label" style="margin-bottom: 18px;">In doing this, I was able to</div>
+          <ol class="cs-numbered">
+            <li><span class="cs-numbered__n">01</span><span>Align stakeholders on the problem worth solving</span></li>
+            <li><span class="cs-numbered__n">02</span><span>Generate over 320 ideas to push creative thinking</span></li>
+            <li><span class="cs-numbered__n">03</span><span>Be the voice of the user during the prioritization of ideas</span></li>
+            <li><span class="cs-numbered__n">04</span><span>Create non-deterministic flows to support an AI-based feature</span></li>
+            <li><span class="cs-numbered__n">05</span><span>Design patterns for AI features, establish visual identity, and shape voice and tone to create an empathetic and beloved chatbot</span></li>
+          </ol>
+        </div>
       </div>
-      <div>
-        <div class="carousel-wrapper">
-          <div class="carousel-track" id="carouselTrack">
-            <div class="carousel-slide"><img src="../images/WendyJourney.jpg" alt="Wendy's Journey — pain points" /></div>
-            <div class="carousel-slide"><img src="../images/HMWs.jpg" alt="How Might We sticky note wall" /></div>
-            <div class="carousel-slide"><img src="../images/HMWTrustDot.jpg" alt="HMW build trust brainstorm" /></div>
-            <div class="carousel-slide"><img src="../images/320ideas.jpg" alt="320 concept sketches" /></div>
-            <div class="carousel-slide"><img src="../images/7-concepts.png" alt="7 themes" /></div>
-            <div class="carousel-slide"><img src="../images/bw-concepts.png" alt="Visualization of concepts" /></div>
-            <div class="carousel-slide"><img src="../images/multi-agent-flow.png" alt="Multi-agent flow" /></div>
+
+      <div class="cs-carousel cs-reveal" style="margin-top: 64px;">
+        <div class="cs-carousel__frame" id="csFrame">
+          <div class="cs-carousel__track" id="csTrack">
+            <div class="cs-carousel__slide"><img src="../images/320ideas.jpg" alt="320 concept sketches" /></div>
+            <div class="cs-carousel__slide"><img src="../images/7-concepts.png" alt="7 themes" /></div>
+            <div class="cs-carousel__slide"><img src="../images/multi-agent-flow.png" alt="Multi-agent flow" /></div>
+            <div class="cs-carousel__slide"><img src="../images/Dot_HITL.png" alt="Dot's Human-in-the-Loop Ability" /></div>
+            <div class="cs-carousel__slide"><img src="../images/Dot_services.png" alt="Dot identifying multiple services" /></div>
           </div>
-          <button class="carousel-btn carousel-btn-prev" onclick="moveCarousel(-1)">‹</button>
-          <button class="carousel-btn carousel-btn-next" onclick="moveCarousel(1)">›</button>
+          <button class="cs-carousel__btn cs-carousel__btn--prev" onclick="csMove(-1, event)">&lsaquo;</button>
+          <button class="cs-carousel__btn cs-carousel__btn--next" onclick="csMove(1, event)">&rsaquo;</button>
         </div>
-        <div class="carousel-dots" id="carouselDots">
-          <button class="carousel-dot active" onclick="goToSlide(0)"></button>
-          <button class="carousel-dot" onclick="goToSlide(1)"></button>
-          <button class="carousel-dot" onclick="goToSlide(2)"></button>
-          <button class="carousel-dot" onclick="goToSlide(3)"></button>
-          <button class="carousel-dot" onclick="goToSlide(4)"></button>
-          <button class="carousel-dot" onclick="goToSlide(5)"></button>
-          <button class="carousel-dot" onclick="goToSlide(6)"></button>
-          <button id="pauseBtn" onclick="togglePause()" style="background:transparent;border:1px solid var(--border);color:var(--mid);width:28px;height:28px;cursor:pointer;font-size:10px;display:flex;align-items:center;justify-content:center;transition:all 0.2s;margin-left:4px;">⏸</button>
+        <div class="cs-carousel__dots">
+          <button class="cs-carousel__dot is-active" onclick="csGoTo(0)"></button>
+          <button class="cs-carousel__dot" onclick="csGoTo(1)"></button>
+          <button class="cs-carousel__dot" onclick="csGoTo(2)"></button>
+          <button class="cs-carousel__dot" onclick="csGoTo(3)"></button>
+          <button class="cs-carousel__dot" onclick="csGoTo(4)"></button>
         </div>
-        <div class="carousel-caption" id="carouselCaption">Wendy's Journey — pain points</div>
+        <div class="cs-carousel__caption"><span id="csCaption">320 concept sketches from the design sprint</span> &middot; Click to enlarge</div>
       </div>
     </div>
   </section>
 
-  <!-- PROCESS -->
-  <section id="process">
-    <div class="section-label">How We Got There</div>
-    <h2>A year-long process, four critical phases</h2>
-    <div class="divider"></div>
-    <div class="process-timeline reveal">
-      <div class="timeline-item">
-        <div class="timeline-step">01</div>
-        <h3>Discovery</h3>
-        <p>Ran a 2-day design sprint to surface pain points and desired future states — generating 320 unique concepts that became the foundation for our vision.</p>
-      </div>
-      <div class="timeline-item">
-        <div class="timeline-step">02</div>
-        <h3>Alignment</h3>
-        <p>Mapped concepts to company strategy and stakeholder goals around AI-driven personalized care. Built and iterated on prototypes until leadership aligned on a shared vision.</p>
-      </div>
-      <div class="timeline-item">
-        <div class="timeline-step">03</div>
-        <h3>User Research</h3>
-        <p>Ran validation studies to test hypotheses. Key finding: users were open to AI-guided care, but trust was the biggest barrier to adoption. We designed around that insight.</p>
-      </div>
-      <div class="timeline-item">
-        <div class="timeline-step">04</div>
-        <h3>Design & Execution</h3>
-        <p>Designed the first non-deterministic agent-based system at Included Health — modeling a new process for user flows, edge cases, AI prototypes, and phased delivery.</p>
+  <section class="cs-section cs-section--sand">
+    <div class="cs-wrap">
+      <div class="cs-label"><span>Outcome</span></div>
+      <h2 class="cs-h2">What Dot delivered</h2>
+      <div class="cs-rule"></div>
+      <div class="cs-results cs-reveal">
+        <div class="cs-result">
+          <div class="cs-result__stat">18%</div>
+          <div class="cs-result__label">Rise in Clinical Usage</div>
+          <p>Dot meaningfully increased the rate at which members connected to and used clinical services — a direct healthcare outcome.</p>
+        </div>
+        <div class="cs-result">
+          <div class="cs-result__stat">2&times;</div>
+          <div class="cs-result__label">Utilization Rate</div>
+          <p>Members using Dot engaged with their benefits at twice the rate compared to those without the AI assistant.</p>
+        </div>
+        <div class="cs-result">
+          <div class="cs-result__stat">4.9&#9733;</div>
+          <div class="cs-result__label">Member Satisfaction</div>
+          <p>This signal showed us that trust, which we centered our design strategy around, was earned.</p>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- LEADERSHIP -->
-  <section id="leadership" style="background: var(--white);">
-    <div class="section-label">Design Leadership</div>
-    <h2>Building the process, not just the product</h2>
-    <div class="divider"></div>
-    <div class="problem-content reveal">
-      <p>Designing a non-deterministic agent-based system was new territory for our cross-functional team. Drawing on my previous experience building successful GenAI products, I modeled a repeatable process for the team that covered:</p>
-      <ul class="solution-list" style="margin-top: 0;">
-        <li>Producing user flows for non-deterministic agents</li>
-        <li>Defining edge cases and how to handle them gracefully</li>
-        <li>Building AI prototypes rapidly to test unknowns before committing to engineering</li>
-        <li>Delivering in phases — functional evaluation, UX evaluation, and launch</li>
-      </ul>
-      <p style="margin-top: 24px; color: var(--mid); font-size: 15.5px; line-height: 1.85; font-weight: 300;">In addition to leading Dot's delivery, I trained other senior designers and PMs to adopt this process — scaling design capability across the organization, not just delivering one product.</p>
-    </div>
-  </section>
-
-  <!-- RESULTS -->
-  <section id="results">
-    <div class="section-label">Impact</div>
-    <h2>Results that speak for themselves</h2>
-    <div class="divider"></div>
-    <div class="results-grid reveal">
-      <div class="result-card">
-        <div class="result-stat">18%</div>
-        <div class="result-label">Rise in Clinical Service Usage</div>
-        <p class="result-desc">Dot meaningfully increased the rate at which members connected to and used clinical services — a direct healthcare outcome.</p>
-      </div>
-      <div class="result-card">
-        <div class="result-stat">2×</div>
-        <div class="result-label">Utilization Rate</div>
-        <p class="result-desc">Members using Dot engaged with their benefits at twice the rate compared to those without the AI assistant.</p>
-      </div>
-      <div class="result-card">
-        <div class="result-stat">4.9★</div>
-        <div class="result-label">Member Satisfaction</div>
-        <p class="result-desc">Average satisfaction rating of 4.9/5 per visit — a signal that trust, which we centered our design strategy around, was earned.</p>
+  <section class="cs-section cs-section--white">
+    <div class="cs-wrap">
+      <div class="cs-label"><span>In the Press</span></div>
+      <h2 class="cs-h2">Dot in the world</h2>
+      <div class="cs-rule"></div>
+      <div class="cs-press cs-reveal">
+        <a href="https://includedhealth.com/announcements/included-health-evolves-dot-from-answers-to-action-with-human-in-the-loop-support-always/" target="_blank" rel="noopener" class="cs-press__card">
+          <div class="cs-press__kicker">Announcement &middot; Included Health</div>
+          <div class="cs-press__title">Dot evolves from answers to action, with human-in-the-loop support always</div>
+          <div class="cs-press__cta">Read the release &#8599;</div>
+        </a>
+        <a href="https://includedhealth.com/solutions/dot-ai-healthcare-assistant/" target="_blank" rel="noopener" class="cs-press__card">
+          <div class="cs-press__kicker">Product Page &middot; Included Health</div>
+          <div class="cs-press__title">Dot, the AI healthcare assistant</div>
+          <div class="cs-press__cta">See Dot &#8599;</div>
+        </a>
       </div>
     </div>
   </section>
 
-  <!-- CTA -->
-  <section class="case-study-cta reveal">
-    <div>
-      <div class="section-label">More Work</div>
-      <h2>See how I built the <em>culture</em> behind this product.</h2>
-    </div>
-    <div>
-      <p>The AI Design Culture case study shows how I shaped the way our design org thinks about, builds with, and grows through AI — across the whole organization.</p>
-      <a href="AIDesignCulture.html" class="btn btn-primary">See AI Design Culture →</a>
+  <section class="cs-section cs-section--stone">
+    <div class="cs-wrap cs-cta cs-reveal">
+      <div>
+        <div class="cs-label"><span>More Work</span></div>
+        <h2 class="cs-cta__title">See the <em>culture</em> behind this product</h2>
+      </div>
+      <div class="cs-cta__right">
+        <p>How I shaped the way our design org thinks about, builds with, and grows through AI.</p>
+        <a href="AIDesignCulture.html" class="cs-btn">See AI Design Culture &rarr;</a>
+      </div>
     </div>
   </section>
 
-  <!-- FOOTER -->
-  <footer>
-    <span>© 2026 Jenn Kong · Designed with care</span>
-  </footer>
+  <footer class="cs-footer">&copy; 2026 Jenn Kong &middot; Designed with care</footer>
 
-  <script>
-    const captions = [
-      "Wendy's Journey — pain points",
-      'How Might We sticky note wall',
-      'HMW build trust brainstorm',
-      '320 concept sketches',
-      '7 themes',
-      'Visualization of concepts',
-      'Multi-agent flow'
-    ];
-    let current = 0;
-    const total = 7;
+</div>
 
-    function updateCarousel() {
-      document.getElementById('carouselTrack').style.transform = `translateX(-${current * 100}%)`;
-      document.getElementById('carouselCaption').textContent = captions[current];
-      document.querySelectorAll('.carousel-dot').forEach((dot, i) => dot.classList.toggle('active', i === current));
-    }
+<script>
+  var csSrcs = ['../images/320ideas.jpg', '../images/7-concepts.png', '../images/multi-agent-flow.png', '../images/Dot_HITL.png', '../images/Dot_services.png'];
+  var csCaptions = ['320 concept sketches from the design sprint', 'Distilled into 7 themes', 'The multi-agent flow', "Dot's Human-in-the-Loop Ability", 'Dot identifying multiple services'];
+  var csCurrent = 0;
+  var csTotal = csSrcs.length;
+  var csTimer;
 
-    let autoPlay = setInterval(() => { current = (current + 1) % total; updateCarousel(); }, 4000);
-    let isPaused = false;
+  function csUpdate() {
+    document.getElementById('csTrack').style.transform = 'translateX(-' + (csCurrent * 100) + '%)';
+    document.getElementById('csCaption').textContent = csCaptions[csCurrent];
+    var dots = document.querySelectorAll('.cs-carousel__dot');
+    for (var i = 0; i < dots.length; i++) dots[i].classList.toggle('is-active', i === csCurrent);
+  }
+  function csStart() {
+    clearInterval(csTimer);
+    csTimer = setInterval(function () { csCurrent = (csCurrent + 1) % csTotal; csUpdate(); }, 5000);
+  }
+  function csMove(dir, e) {
+    if (e) e.stopPropagation();
+    clearInterval(csTimer);
+    csCurrent = (csCurrent + dir + csTotal) % csTotal;
+    csUpdate();
+  }
+  function csGoTo(i) { clearInterval(csTimer); csCurrent = i; csUpdate(); }
 
-    function pauseCarousel() { clearInterval(autoPlay); isPaused = true; document.getElementById('pauseBtn').textContent = '▶'; }
-    function resumeCarousel() { autoPlay = setInterval(() => { current = (current + 1) % total; updateCarousel(); }, 4000); isPaused = false; document.getElementById('pauseBtn').textContent = '⏸'; }
-    function togglePause() { isPaused ? resumeCarousel() : pauseCarousel(); }
-    function moveCarousel(dir) { current = (current + dir + total) % total; updateCarousel(); pauseCarousel(); }
-    function goToSlide(i) { current = i; updateCarousel(); pauseCarousel(); }
+  document.getElementById('csFrame').addEventListener('click', function (e) {
+    if (e.target.tagName === 'BUTTON') return;
+    clearInterval(csTimer);
+    var box = document.createElement('div');
+    box.className = 'cs-lightbox';
+    var img = document.createElement('img');
+    img.src = csSrcs[csCurrent];
+    img.alt = csCaptions[csCurrent];
+    box.appendChild(img);
+    function close() { box.remove(); document.removeEventListener('keydown', onKey); }
+    function onKey(ev) { if (ev.key === 'Escape') close(); }
+    box.addEventListener('click', close);
+    document.addEventListener('keydown', onKey);
+    document.body.appendChild(box);
+  });
 
-    document.querySelector('.carousel-wrapper').addEventListener('mouseenter', pauseCarousel);
-    document.querySelector('.carousel-wrapper').addEventListener('mouseleave', () => { if (!isPaused) resumeCarousel(); });
+  csStart();
 
-    // Scroll reveal
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
-    }, { threshold: 0.08 });
-    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-  </script>
+  var csObserver = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (e.isIntersecting) { e.target.classList.add('is-visible'); csObserver.unobserve(e.target); }
+    });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.cs-reveal').forEach(function (el) { csObserver.observe(el); });
+</script>
 </body>
 </html>
