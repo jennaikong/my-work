@@ -4,205 +4,181 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Building AI Design Culture — Jenn Kong</title>
-  <link rel="stylesheet" href="../styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../case-study.css" />
 </head>
-<body>
+<body class="cs-body">
+<div class="cs-page">
 
-  <!-- NAV -->
-  <nav>
-    <a href="../index.html" class="nav-logo">Jenn Kong</a>
-    <a href="../index.html#projects" class="nav-back">← Back to Work</a>
+  <nav class="cs-nav">
+    <a href="../index.html" class="cs-nav__logo">Jenn Kong</a>
+    <a href="../index.html#projects" class="cs-nav__back">&larr; Back to Work</a>
   </nav>
 
-  <!-- HERO -->
-  <section class="case-study-hero">
-    <div class="case-hero-left reveal">
-      <div class="case-tag">Design Leadership · Included Health · 2023–2026</div>
-      <h1>Building AI Design Culture</h1>
-      <p class="case-subtitle">How I shaped the way a healthcare design org thinks about, builds with, and grows through AI.</p>
+  <section class="cs-hero">
+    <div class="cs-hero__text cs-reveal">
+      <div class="cs-hero__tag">Design Leadership &middot; Included Health &middot; 2023&ndash;2026</div>
+      <h1 class="cs-hero__title">Building AI Design <em>Culture</em></h1>
+      <p class="cs-hero__lede" style="font-size: 18px; line-height: 1.7;">How do we help designers think through product development using AI as a core design material?</p>
     </div>
-    <div class="case-hero-right">
-      <img src="../images/AI-Workshop.jpg" alt="AI Design Patterns Workshop" />
+    <div class="cs-hero__media">
+      <img src="../images/aiculture-sketch.png" alt="Culture of AI innovation — systems thinking, time to play, AI UX patterns, sci-fi inspiration" />
     </div>
   </section>
 
-  <!-- OVERVIEW -->
-  <section id="overview">
-    <div class="section-label">Overview</div>
-    <h2>The Work Behind the Work</h2>
-    <div class="divider"></div>
-    <div class="overview-grid reveal">
-      <div class="overview-item">
-        <h3>The Context</h3>
-        <p>As AI reshaped what product teams could build, design needed to evolve too — not just in output, but in mindset, process, and culture. I saw a gap and stepped in to close it.</p>
-      </div>
-      <div class="overview-item">
-        <h3>My Role</h3>
-        <p>Beyond my core product work, I took on org-wide design leadership: running hackathons, establishing AI design principles, and bringing external knowledge back in through hands-on internal workshops.</p>
-      </div>
-      <div class="overview-item">
-        <h3>The Impact</h3>
-        <p>A design team that's more confident, more creative, and better equipped to lead AI product decisions — not just react to them.</p>
+  <section class="cs-section cs-section--sand">
+    <div class="cs-wrap">
+      <div class="cs-label"><span>The Challenge</span></div>
+      <h2 class="cs-h2" style="max-width: 900px;">A team moving fast without a map</h2>
+      <div class="cs-rule cs-rule--tight"></div>
+      <div class="cs-prose cs-reveal">
+        <p>When GenAI took off in 2023, our teams moved fast but without a shared foundation. AI features shipped reactively — shaped by what the technology could do, not what users needed. We didn't yet know how to design for non-deterministic flows, which led to rework and churn. Meanwhile, the gap between engineering and design kept widening, breeding mistrust and siloed work.</p>
+        <blockquote class="cs-quote">"Designers weren't lacking talent or ambition — they lacked a framework."</blockquote>
+        <p>A survey I ran across the design org confirmed it: designers needed structure to evaluate AI's fit and to advocate for users whenever they were in rooms where engineering and product set the agenda.</p>
       </div>
     </div>
   </section>
 
-  <!-- PROBLEM -->
-  <section id="problem">
-    <div class="section-label">The Challenge</div>
-    <h2>A team moving fast without a map</h2>
-    <div class="divider"></div>
-    <div class="problem-content reveal">
-      <p>As GenAI took off in early 2023, product teams at Included Health moved quickly — but without a shared foundation. AI features were getting added reactively, driven more by technology push than user need. The result was a fragmented experience and a design team that felt underprepared to lead.</p>
-      <div class="pull-quote">"Designers weren't lacking talent or ambition — they lacked a framework."</div>
-      <p>A survey I ran across our design org surfaced the core gap: designers needed structure for how to think about AI, evaluate its fit, and advocate for users in rooms where engineers and PMs were setting the agenda.</p>
-      <p>The opportunity wasn't just to design better AI features. It was to build a culture where designers could lead AI conversations with confidence — and bring the rest of the org with them.</p>
-    </div>
-  </section>
-
-  <!-- SOLUTION -->
-  <section id="solution">
-    <div class="section-label">The Approach</div>
-    <h2>Three ways I shaped the culture</h2>
-    <div class="divider"></div>
-    <div class="solution-grid reveal">
-      <div class="solution-text">
-        <p>Rather than waiting for culture to change on its own, I created the conditions for it — through structured innovation, principled design standards, and continuous learning brought back from the outside in.</p>
-        <p>The three pillars of this work:</p>
-        <ul class="solution-list">
-          <li>Hackathons that brought engineering, product, and design together to build, experiment, and stretch creatively — turning cross-functional energy into shipped features</li>
-          <li>A set of AI design values, principles, and UI patterns that gave the team a shared language and a user-centered foundation for every AI experience we built</li>
-          <li>Internal workshops translating external certifications into practical, hands-on learning — making sure new knowledge didn't stop at me</li>
-        </ul>
+  <section class="cs-section cs-section--white">
+    <div class="cs-wrap">
+      <div class="cs-label"><span>The Approach</span></div>
+      <h2 class="cs-h2">Three ways I shaped the culture</h2>
+      <div class="cs-rule"></div>
+      <div class="cs-grid-3 cs-reveal">
+        <div class="cs-phase">
+          <div class="cs-phase__n">01</div>
+          <h3>Hackathons</h3>
+          <p>Cross-functional hackathons where engineering, product and design built together. Designers went from polishing ideas to prototyping them.</p>
+        </div>
+        <div class="cs-phase">
+          <div class="cs-phase__n">02</div>
+          <h3>AI Design Principles</h3>
+          <p>Values, principles and reusable UI patterns that gave every AI experience we shipped a shared, user-centered standard.</p>
+        </div>
+        <div class="cs-phase">
+          <div class="cs-phase__n">03</div>
+          <h3>Innovation Workshop</h3>
+          <p>Bringing it all together, I co-led a workshop to give designers a framework to understand how to think about AI features and build an AI-based product that can meet user's needs, is feasible for engineering and aligns to the company's value system.</p>
+        </div>
       </div>
-      <div>
-        <div class="carousel-wrapper">
-          <div class="carousel-track" id="carouselTrack">
-            <div class="carousel-slide fit-contain"><img src="../images/AI-UX-patterns.png" alt="AI UX design patterns framework" /></div>
-            <div class="carousel-slide"><img src="../images/AI-Workshop.jpg" alt="AI design workshop in session" /></div>
-            <div class="carousel-slide fit-contain"><img src="../images/Kong-sketch_notes.png" alt="Sketchnotes from Rosenfeld Media talk" /></div>
+
+      <div class="cs-carousel cs-reveal" style="margin-top: 64px;">
+        <div class="cs-carousel__frame" id="csFrame">
+          <div class="cs-carousel__track" id="csTrack">
+            <div class="cs-carousel__slide"><img src="../images/AI_process.png" alt="AI product process" /></div>
+            <div class="cs-carousel__slide"><img src="../images/AI_principles.png" alt="AI product principles" /></div>
+            <div class="cs-carousel__slide"><img src="../images/online_brainstorm.png" alt="Online brainstorm board" /></div>
+            <div class="cs-carousel__slide"><img src="../images/hackathon-live.jpeg" alt="Hackathon kickoff" /></div>
+            <div class="cs-carousel__slide"><img src="../images/AI-Workshop.jpg" alt="AI design workshop in session" /></div>
           </div>
-          <button class="carousel-btn carousel-btn-prev" onclick="moveCarousel(-1)">‹</button>
-          <button class="carousel-btn carousel-btn-next" onclick="moveCarousel(1)">›</button>
+          <button class="cs-carousel__btn cs-carousel__btn--prev" onclick="csMove(-1, event)">&lsaquo;</button>
+          <button class="cs-carousel__btn cs-carousel__btn--next" onclick="csMove(1, event)">&rsaquo;</button>
         </div>
-        <div class="carousel-dots" id="carouselDots">
-          <button class="carousel-dot active" onclick="goToSlide(0)"></button>
-          <button class="carousel-dot" onclick="goToSlide(1)"></button>
-          <button class="carousel-dot" onclick="goToSlide(2)"></button>
+        <div class="cs-carousel__dots">
+          <button class="cs-carousel__dot is-active" onclick="csGoTo(0)"></button>
+          <button class="cs-carousel__dot" onclick="csGoTo(1)"></button>
+          <button class="cs-carousel__dot" onclick="csGoTo(2)"></button>
+          <button class="cs-carousel__dot" onclick="csGoTo(3)"></button>
+          <button class="cs-carousel__dot" onclick="csGoTo(4)"></button>
         </div>
-        <div class="carousel-caption" id="carouselCaption">AI UX design patterns framework</div>
+        <div class="cs-carousel__caption"><span id="csCaption">AI product process</span> &middot; Click to enlarge</div>
       </div>
     </div>
   </section>
 
-  <!-- PROCESS -->
-  <section id="process">
-    <div class="section-label">How It Came Together</div>
-    <h2>Three pillars, in depth</h2>
-    <div class="divider"></div>
-    <div class="process-timeline reveal">
-      <div class="timeline-item">
-        <div class="timeline-step">01</div>
-        <h3>Hackathons</h3>
-        <p>I organized cross-functional hackathons for engineering, product, and design to experiment freely and build together. The format grew participation 10x — creating a culture where designers felt empowered to prototype ideas, not just polish them.</p>
-      </div>
-      <div class="timeline-item">
-        <div class="timeline-step">02</div>
-        <h3>AI Design Principles</h3>
-        <p>I established a set of AI design values, principles, and reusable UI patterns grounded in a user-centered process. These became the foundation for every AI experience we shipped — giving the team a shared standard to design from and evaluate against.</p>
-      </div>
-      <div class="timeline-item">
-        <div class="timeline-step">03</div>
-        <h3>External Learning, Brought In</h3>
-        <p>I earned certifications in OOUX, communication strategy, and AI product design — and ran a practical internal workshop after each one. Learning didn't stop at me; it became a resource for the whole org.</p>
-      </div>
-      <div class="timeline-item">
-        <div class="timeline-step">04</div>
-        <h3>Scaling the Mindset</h3>
-        <p>By modeling the process, building reusable tools, and creating space for experimentation, I helped move the org from reactive AI adoption to intentional AI design.</p>
+  <section class="cs-section cs-section--sand">
+    <div class="cs-wrap">
+      <div class="cs-label"><span>Impact</span></div>
+      <h2 class="cs-h2" style="max-width: 900px;">From reactive AI adoption to intentional AI design</h2>
+      <div class="cs-rule"></div>
+      <div class="cs-results cs-reveal">
+        <div class="cs-result">
+          <div class="cs-result__stat">50%</div>
+          <div class="cs-result__label">Hackathon Ideas Shipped</div>
+          <p>Half of all hackathon prototypes made it into the product.</p>
+        </div>
+        <div class="cs-result">
+          <div class="cs-result__stat">10&times;</div>
+          <div class="cs-result__label">Designer Participation</div>
+          <p>Designer involvement in hackathons grew tenfold after I took over the program.</p>
+        </div>
+        <div class="cs-result">
+          <div class="cs-result__stat">80%</div>
+          <div class="cs-result__label">Confidence Boost</div>
+          <p>After the innovation workshops, designers reported feeling more confident (4/5) when approaching a design that could require an&nbsp;AI-based feature.</p>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- RESULTS -->
-  <section id="results">
-    <div class="section-label">Impact</div>
-    <h2>Results that compounded across the org</h2>
-    <div class="divider"></div>
-    <div class="results-grid reveal">
-      <div class="result-card">
-        <div class="result-stat">50%</div>
-        <div class="result-label">Hackathon Ideas Shipped</div>
-        <p class="result-desc">Half of all features prototyped during hackathons made it into the product — a direct pipeline from creative experimentation to real user value.</p>
+  <section class="cs-section cs-section--stone">
+    <div class="cs-wrap cs-cta cs-reveal">
+      <div>
+        <div class="cs-label"><span>More Work</span></div>
+        <h2 class="cs-cta__title">See this thinking applied to <em>information architecture</em></h2>
       </div>
-      <div class="result-card">
-        <div class="result-stat">10×</div>
-        <div class="result-label">Designer Participation</div>
-        <p class="result-desc">Designer involvement in hackathons grew tenfold after I took over leadership — the format finally felt relevant and empowering for the design discipline.</p>
-      </div>
-      <div class="result-card">
-        <div class="result-stat">75%</div>
-        <div class="result-label">Employee Morale Boost</div>
-        <p class="result-desc">Three quarters of employees reported a morale lift tied to the hackathon program — building camaraderie and creative energy across engineering, product, and design.</p>
+      <div class="cs-cta__right">
+        <p>How object-oriented UX untangled conversations and cases in our member app.</p>
+        <a href="InformationArchitecture.html" class="cs-btn">See the IA Re-design &rarr;</a>
       </div>
     </div>
   </section>
 
-  <!-- CTA -->
-  <section class="case-study-cta reveal">
-    <div>
-      <div class="section-label">More Work</div>
-      <h2>See how this culture-building translated into a <em>production AI product.</em></h2>
-    </div>
-    <div>
-      <p>The Dot Platform case study shows the full arc — from vision alignment to brand identity to a shipped multi-agent healthcare assistant.</p>
-      <a href="DotPlatform.html" class="btn btn-primary">See the Dot Platform →</a>
-    </div>
-  </section>
+  <footer class="cs-footer">&copy; 2026 Jenn Kong &middot; Designed with care</footer>
 
-  <!-- FOOTER -->
-  <footer>
-    <span>© 2026 Jenn Kong · Designed with care</span>
-  </footer>
+</div>
 
-  <script>
-    const captions = [
-      'AI UX design patterns framework',
-      'AI design workshop in session',
-      'Sketchnotes from Rosenfeld Media talk'
-    ];
-    let current = 0;
-    const total = 3;
+<script>
+  var csSrcs = ["../images/AI_process.png","../images/AI_principles.png","../images/online_brainstorm.png","../images/hackathon-live.jpeg","../images/AI-Workshop.jpg"];
+  var csCaptions = ["AI product process","AI product principles","Online brainstorm board","Hackathon kickoff","AI design workshop in session"];
+  var csCurrent = 0;
+  var csTotal = csSrcs.length;
+  var csTimer;
 
-    function updateCarousel() {
-      document.getElementById('carouselTrack').style.transform = `translateX(-${current * 100}%)`;
-      document.getElementById('carouselCaption').textContent = captions[current];
-      document.querySelectorAll('.carousel-dot').forEach((dot, i) => {
-        dot.classList.toggle('active', i === current);
-      });
-    }
+  function csUpdate() {
+    document.getElementById('csTrack').style.transform = 'translateX(-' + (csCurrent * 100) + '%)';
+    document.getElementById('csCaption').textContent = csCaptions[csCurrent];
+    var dots = document.querySelectorAll('.cs-carousel__dot');
+    for (var i = 0; i < dots.length; i++) dots[i].classList.toggle('is-active', i === csCurrent);
+  }
+  function csStart() {
+    clearInterval(csTimer);
+    csTimer = setInterval(function () { csCurrent = (csCurrent + 1) % csTotal; csUpdate(); }, 5000);
+  }
+  function csMove(dir, e) {
+    if (e) e.stopPropagation();
+    clearInterval(csTimer);
+    csCurrent = (csCurrent + dir + csTotal) % csTotal;
+    csUpdate();
+  }
+  function csGoTo(i) { clearInterval(csTimer); csCurrent = i; csUpdate(); }
 
-    let isPaused = false;
-    let autoPlay;
+  document.getElementById('csFrame').addEventListener('click', function (e) {
+    if (e.target.tagName === 'BUTTON') return;
+    clearInterval(csTimer);
+    var box = document.createElement('div');
+    box.className = 'cs-lightbox';
+    var img = document.createElement('img');
+    img.src = csSrcs[csCurrent];
+    img.alt = csCaptions[csCurrent];
+    box.appendChild(img);
+    function close() { box.remove(); document.removeEventListener('keydown', onKey); }
+    function onKey(ev) { if (ev.key === 'Escape') close(); }
+    box.addEventListener('click', close);
+    document.addEventListener('keydown', onKey);
+    document.body.appendChild(box);
+  });
 
-    function startAutoPlay() {
-      clearInterval(autoPlay);
-      autoPlay = setInterval(() => { current = (current + 1) % total; updateCarousel(); }, 4000);
-    }
-    function pauseCarousel() { clearInterval(autoPlay); }
-    function resumeCarousel() { if (!isPaused) startAutoPlay(); }
-    function moveCarousel(dir) { current = (current + dir + total) % total; updateCarousel(); isPaused = true; pauseCarousel(); }
-    function goToSlide(i) { current = i; updateCarousel(); }
+  csStart();
 
-    startAutoPlay();
-    document.querySelector('.carousel-wrapper').addEventListener('mouseenter', pauseCarousel);
-    document.querySelector('.carousel-wrapper').addEventListener('mouseleave', resumeCarousel);
-
-    // Scroll reveal
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
-    }, { threshold: 0.08 });
-    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-  </script>
+  var csObserver = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (e.isIntersecting) { e.target.classList.add('is-visible'); csObserver.unobserve(e.target); }
+    });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.cs-reveal').forEach(function (el) { csObserver.observe(el); });
+</script>
 </body>
 </html>
