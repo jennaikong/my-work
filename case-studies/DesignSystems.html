@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Agent-assisted Design Systems — Jenn Kong</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../case-study.css" />
+</head>
+<body class="cs-body">
+<div class="cs-page">
+
+  <nav class="cs-nav">
+    <a href="../index.html" class="cs-nav__logo">Jenn Kong</a>
+    <a href="../index.html#projects" class="cs-nav__back">&larr; Back to Work</a>
+  </nav>
+
+  <section class="cs-hero">
+    <div class="cs-hero__text cs-reveal">
+      <div class="cs-hero__tag">Included Health &middot; Web, iOS &amp; Android</div>
+      <h1 class="cs-hero__title">Agent-assisted <em>Design Systems</em></h1>
+      <p class="cs-hero__lede" style="font-size: 18px; line-height: 1.7;">How do we keep a design system consistent and fast enough for both people and agents to build with?</p>
+    </div>
+    <div class="cs-hero__media">
+      <img src="../images/ds-hero.gif" alt="Design system documentation — scrolling through components and guidance" />
+    </div>
+  </section>
+
+  <section class="cs-section cs-section--sand">
+    <div class="cs-wrap">
+      <div class="cs-label"><span>The Challenge</span></div>
+      <h2 class="cs-h2" style="max-width: 900px;">Maintaining a design system is not a trivial job</h2>
+      <div class="cs-rule cs-rule--tight"></div>
+      <div class="cs-prose cs-reveal">
+        <p>Creating and maintaining components takes constant care. My role was to give designers and developers a system they could trust — so they could build consistent, high-quality products and ship quickly.</p>
+        <blockquote class="cs-quote" style="margin-bottom: 0;">"Establish consistency, increase quality, and improve speed of development."</blockquote>
+      </div>
+    </div>
+  </section>
+
+  <section class="cs-section cs-section--white">
+    <div class="cs-wrap">
+      <div class="cs-label"><span>The Approach</span></div>
+      <h2 class="cs-h2">Three moves that made the system work for everyone</h2>
+      <div class="cs-rule"></div>
+      <div class="cs-grid-3 cs-reveal">
+        <div class="cs-phase">
+          <div class="cs-phase__n">01</div>
+          <h3>Agent-readable Library</h3>
+          <p>Organized our design tokens, base components and complex components into a library that humans and agents can both interpret.</p>
+        </div>
+        <div class="cs-phase">
+          <div class="cs-phase__n">02</div>
+          <h3>Prompt-to-Prototype</h3>
+          <p>With expert prototypers and developers, built an environment where design and product partners create real-looking prototypes by prompting or vibe coding.</p>
+        </div>
+        <div class="cs-phase">
+          <div class="cs-phase__n">03</div>
+          <h3>One System, Three Platforms</h3>
+          <p>Aligned web, iOS and Android to a shared component library and brought all three to full accessibility compliance.</p>
+        </div>
+      </div>
+
+      
+      <div class="cs-carousel cs-reveal" id="csCarousel" style="margin-top: 64px;">
+        <div class="cs-carousel__frame" id="csFrame">
+          <div class="cs-carousel__track" id="csTrack">
+            <div class="cs-carousel__slide" data-caption="Design system overview"><img src="../images/ds-1.gif" alt="Rich UI components demo built from the design system" /></div>
+            <div class="cs-carousel__slide" data-caption="Buttons"><img src="../images/ds-2.png" alt="Buttons documentation — anatomy and states" /></div>
+            <div class="cs-carousel__slide" data-caption="Chat UI components"><video src="../images/ds-3.mp4" autoplay muted loop playsinline aria-label="Chat UI components — multi-select replies in action" style="max-width:100%;max-height:100%;object-fit:contain;display:block;"></video></div>
+          </div>
+          <button class="cs-carousel__btn cs-carousel__btn--prev" onclick="csMove(-1, event)">&lsaquo;</button>
+          <button class="cs-carousel__btn cs-carousel__btn--next" onclick="csMove(1, event)">&rsaquo;</button>
+        </div>
+        <div class="cs-carousel__dots" id="csDots"></div>
+        <div class="cs-carousel__caption"><span id="csCaption"></span> &middot; Click to enlarge</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cs-section cs-section--sand">
+    <div class="cs-wrap">
+      <div class="cs-label"><span>Impact</span></div>
+      <h2 class="cs-h2" style="max-width: 900px;">A system built for people and agents</h2>
+      <div class="cs-rule"></div>
+      <div class="cs-results cs-reveal">
+        <div class="cs-result">
+          <div class="cs-result__stat">100%</div>
+          <div class="cs-result__label">Accessibility Compliance</div>
+          <p>Web, iOS and Android all brought up to full accessibility compliance.</p>
+        </div>
+        <div class="cs-result">
+          <div class="cs-result__stat">3</div>
+          <div class="cs-result__label">Platforms, One Library</div>
+          <p>A shared component library across web, iOS and Android.</p>
+        </div>
+        <div class="cs-result">
+          <div class="cs-result__stat">1</div>
+          <div class="cs-result__label">Prompt-ready Environment</div>
+          <p>Design and product partners prototype with real components, not mockups.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cs-section cs-section--stone">
+    <div class="cs-wrap cs-cta cs-reveal">
+      <div>
+        <div class="cs-label"><span>More Work</span></div>
+        <h2 class="cs-cta__title">See the system in a <em>shipped product</em></h2>
+      </div>
+      <div class="cs-cta__right">
+        <p>The Dot Platform — a multi-agent AI healthcare assistant built on these foundations.</p>
+        <a href="DotPlatform.html" class="cs-btn">See the Dot Platform &rarr;</a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="cs-footer">&copy; 2026 Jenn Kong &middot; Designed with care</footer>
+
+</div>
+
+<script>
+  var csCurrent = 0, csTimer, csSlides = [];
+
+  function csBuild() {
+    csSlides = Array.prototype.slice.call(document.querySelectorAll('#csTrack .cs-carousel__slide'));
+    if (!csSlides.length) { document.getElementById('csCarousel').remove(); return; }
+    var dots = document.getElementById('csDots');
+    dots.innerHTML = '';
+    csSlides.forEach(function (_, i) {
+      var b = document.createElement('button');
+      b.className = 'cs-carousel__dot';
+      b.onclick = function () { csGoTo(i); };
+      dots.appendChild(b);
+    });
+    if (csCurrent >= csSlides.length) csCurrent = 0;
+    csUpdate();
+  }
+
+  // drop any slide whose image is missing, then rebuild
+  document.querySelectorAll('#csTrack img, #csTrack video').forEach(function (el) {
+    el.addEventListener('error', function () { el.closest('.cs-carousel__slide').remove(); csBuild(); });
+  });
+
+  function csUpdate() {
+    if (!csSlides.length) return;
+    document.getElementById('csTrack').style.transform = 'translateX(-' + (csCurrent * 100) + '%)';
+    document.getElementById('csCaption').textContent = csSlides[csCurrent].getAttribute('data-caption');
+    var dots = document.querySelectorAll('.cs-carousel__dot');
+    for (var i = 0; i < dots.length; i++) dots[i].classList.toggle('is-active', i === csCurrent);
+  }
+  function csStart() {
+    clearInterval(csTimer);
+    csTimer = setInterval(function () { if (csSlides.length) { csCurrent = (csCurrent + 1) % csSlides.length; csUpdate(); } }, 5000);
+  }
+  function csMove(dir, e) {
+    if (e) e.stopPropagation();
+    clearInterval(csTimer);
+    csCurrent = (csCurrent + dir + csSlides.length) % csSlides.length;
+    csUpdate();
+  }
+  function csGoTo(i) { clearInterval(csTimer); csCurrent = i; csUpdate(); }
+
+  document.getElementById('csFrame').addEventListener('click', function (e) {
+    if (e.target.tagName === 'BUTTON' || !csSlides.length) return;
+    clearInterval(csTimer);
+    var src = csSlides[csCurrent].querySelector('img, video');
+    var box = document.createElement('div');
+    box.className = 'cs-lightbox';
+    var media;
+    if (src.tagName === 'VIDEO') {
+      media = document.createElement('video');
+      media.src = src.currentSrc || src.src;
+      media.autoplay = true; media.muted = true; media.loop = true; media.playsInline = true;
+      media.setAttribute('aria-label', src.getAttribute('aria-label') || '');
+      media.style.cssText = 'max-width:100%;max-height:100%;object-fit:contain;background:#faf8f4';
+    } else {
+      media = document.createElement('img');
+      media.src = src.src;
+      media.alt = src.alt;
+    }
+    box.appendChild(media);
+    function close() { box.remove(); document.removeEventListener('keydown', onKey); }
+    function onKey(ev) { if (ev.key === 'Escape') close(); }
+    box.addEventListener('click', close);
+    document.addEventListener('keydown', onKey);
+    document.body.appendChild(box);
+  });
+
+  csBuild();
+  csStart();
+
+  var csObserver = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (e.isIntersecting) { e.target.classList.add('is-visible'); csObserver.unobserve(e.target); }
+    });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.cs-reveal').forEach(function (el) { csObserver.observe(el); });
+</script>
+</body>
+</html>
